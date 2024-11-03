@@ -9,7 +9,7 @@ const VideoSection = () => {
             <div className="overlay">
                 <h2>"Sharing Surplus, Spreding Smiles..."</h2>
                 <p>Join hands together with Food Sathi  to spread happiness everyday.</p>
-                <a href="https://form-link.com" className="video-button">Join as Volunteer</a>
+                <a href="/form" className="video-button">Join as Volunteer</a>
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Register from './Register';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -41,6 +42,11 @@ const LoginPage = () => {
         {error && <p style={styles.error}>{error}</p>}
         <button type="submit" style={styles.button}>Login</button>
       </form>
+      
+      {/* Registration Link */}
+      <p style={styles.registerText}>
+        Don't have an account? <a href="/register" style={styles.link}>Register here</a>
+      </p>
     </div>
   );
 };
@@ -76,6 +82,15 @@ const styles = {
   },
   error: {
     color: 'red',
+  },
+  registerText: {
+    textAlign: 'center',
+    marginTop: '10px',
+  },
+  link: {
+    color: 'blue',
+    textDecoration: 'underline',
+    cursor: 'pointer',
   },
 };
 
