@@ -7,6 +7,7 @@ import VideoSection from './Components/VideoSection/VideoSection';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JoinForm from './Components/Form/JoinForm';
 import Login from './Components/Login';  
+import Register from './Components/Register';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<><Home /><VideoSection /><ImageCardSection /></>} /> {/* ImageCardSection for Home */}
         <Route path="/form" element={<JoinForm />} /> {/* JoinForm for form page */}
         <Route path="/login" element={<Login />} /> {/* Add route for Login */}
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
