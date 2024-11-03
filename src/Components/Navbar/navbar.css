@@ -1,0 +1,212 @@
+/* Root and basic styling variables */
+:root {
+    --PrimaryColor: #003366;
+    --leafColor: #76B041;
+    --navlinkColor: #F2E9D8;
+    --accentColor: #EAF4E1;
+    --textColor: #212121;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--accentColor);
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    background:  var(--PrimaryColor);
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    color: var(--navlinkColor);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.logo .icons {
+    font-size: 35px;
+    color: var(--navlinkColor);
+    margin-right: 8px;
+}
+
+.navBar {
+    top: 0px;
+    display: flex;
+    align-items: center;
+    background: var(--PrimaryColor);
+}
+
+.navLists {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navItem {
+    margin: 0 1rem;
+}
+
+.navLink {
+    color: var(--navlinkColor);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover,
+.navLink:focus {
+    color: var(--leafColor);
+}
+
+.navLink.active {
+    color: var(--leafColor);
+    border-bottom: 2px solid var(--leafColor);
+}
+
+.btn {
+    background-color: var(--leafColor);
+    border: none;
+    color: var(--navlinkColor);
+    font-size : 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #5a9535;
+    transform: scale(1.05);
+}
+
+.btn a {
+    color: var(--navlinkColor);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.translate-icon {
+    cursor: pointer;
+    color: var(--navlinkColor);
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.translate-icon:hover {
+    color: var(--leafColor);
+}
+
+/* Google Translate dropdown */
+.translate-dropdown {
+    visibility: hidden;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: var(--accentColor);
+    padding: 10px 10px 10px 40px;
+    z-index: 1000;
+    border-radius: 4px;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.translate-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Close button */
+.translate-dropdown .closeNavbar , .closeNavBar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--navlinkColor);
+    display: none;
+}
+
+.toggleNavbar{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navBar {
+        position: absolute;
+        background: var(--PrimaryColor);
+        height: max-content;
+        width: 80%;
+        border-radius: 1rem;
+        top: -500rem;
+        left: 50%;
+        padding: 1rem;
+        transform: translate(-50%) scale(0.95);
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        z-index: 2000;
+        box-shadow: 0 2px 4px rgba(2, 15, 29, 0.9);
+    }
+
+    .activeNavbar {
+        top: 4rem;
+        opacity: 1;
+        transform: translate(-50%) scale(1);
+    }
+
+    .navLists {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .navItem {
+        padding: 0.5rem 0;
+    }
+
+    .btn {
+        margin-top: 1rem;
+    }
+
+    .translate-icon {
+        font-size: 1.2em;
+    }
+
+    .translate-dropdown {
+        top: 50px;
+        right: 10px;
+        width: 80vw;
+        background-color: var(--PrimaryColor);
+    }
+    
+    .toggleNavbar, .closeNavbar, .closeNavBar{
+        display: block;
+        color: var(--navlinkColor);
+        font-size: 1.2em;
+    }
+}

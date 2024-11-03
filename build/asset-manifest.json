@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23c94263.css",
+    "main.js": "/static/js/main.9573a805.js",
+    "static/media/fooddoantion1.jpeg": "/static/media/fooddoantion1.4fbce1a61e9d607a61ab.jpeg",
+    "static/media/3505936067-preview.mp4": "/static/media/3505936067-preview.e542d58b8f17b54e25e4.mp4",
+    "static/media/fooddonation2.jpg": "/static/media/fooddonation2.3006f194a4506336bb9c.jpg",
+    "static/media/fooddonatio3.jpg": "/static/media/fooddonatio3.51edb563f23f1a9b8731.jpg",
+    "index.html": "/index.html",
+    "main.23c94263.css.map": "/static/css/main.23c94263.css.map",
+    "main.9573a805.js.map": "/static/js/main.9573a805.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23c94263.css",
+    "static/js/main.9573a805.js"
+  ]
+}
