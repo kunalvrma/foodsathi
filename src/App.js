@@ -16,9 +16,9 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<><Home /><VideoSection /><ImageCardSection /></>} /> {/* ImageCardSection for Home */}
-        <Route path="/form" element={<JoinForm />} /> {/* JoinForm for form page */}
-        <Route path="/login" element={<Login />} /> {/* Add route for Login */}
+        <Route path="/" element={<><Home /><VideoSection /><ImageCardSection /></>} />
+        <Route path="/form" element={<JoinForm />} /> 
+        <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
