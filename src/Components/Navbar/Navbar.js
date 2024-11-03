@@ -31,7 +31,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" }, // Update link to home
     { name: "About Us", link: "#" },
-    { name: "Join", link: "#" },
+    { name: "Join", link: "/form" },
     { name: "Learn", link: "#" },
   ];
 

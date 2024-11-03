@@ -6,7 +6,8 @@ import Navbar from './Components/Navbar/Navbar';
 import VideoSection from './Components/VideoSection/VideoSection';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JoinForm from './Components/Form/JoinForm';
-import Login from './Components/Login'; // Import Login
+import Login from './Components/Login';  
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
