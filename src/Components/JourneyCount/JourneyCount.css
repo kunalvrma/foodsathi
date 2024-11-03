@@ -1,0 +1,113 @@
+:root {
+    --PrimaryColor: #003366;
+    --leafColor: #76B041;
+    --navlinkColor: #F2E9D8;
+    --accentColor: #EAF4E1;
+    --textColor: #212121;
+}
+
+.journey-count {
+    position: relative;
+    text-align: center;
+    padding: 2em 1em;
+    background-image: url('./joinus.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--accentColor);
+}
+
+/* Overlay with white, 25% transparency */
+.journey-count::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    z-index: 0;
+}
+
+.section-heading {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    text-transform: uppercase;
+    color: var(--PrimaryColor);
+    position: relative;
+    z-index: 1;
+}
+
+.count-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.count-item {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #5A9A32;
+}
+
+.count-item .count-label {
+    display: block;
+    font-size: 0.5em; /* Slightly larger for readability */
+    font-weight: normal;
+    margin-top: 0.5em;
+    font-weight: bold;
+    color: var(--textColor);
+    text-transform: uppercase;
+}
+
+/* Responsive Styles */
+
+/* Medium screens */
+@media (max-width: 768px) {
+    .journey-count {
+        background-position: center top; /* Reposition image for better fit */
+    }
+    .section-heading {
+        font-size: 1.75em;
+        margin-bottom: 1em;
+    }
+
+    .count-item {
+        font-size: 1.3em;
+    }
+
+    .count-container {
+        gap: 1.5em;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .journey-count {
+        background-size: contain; /* Ensure the image fits within smaller screens */
+        background-position: top; /* Position image at the top */
+    }
+    .journey-count {
+        padding: 1.5em 0.5em;
+        background-position: top; /* Adjust for mobile display */
+    }
+
+    .section-heading {
+        font-size: 1.5em;
+        margin-bottom: 0.8em;
+    }
+
+    .count-container {
+        flex-direction: column; /* Stack items on top of each other */
+        gap: 1em;
+    }
+
+    .count-item {
+        font-size: 1.2em;
+    }
+}
