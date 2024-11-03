@@ -7,7 +7,9 @@ import VideoSection from './Components/VideoSection/VideoSection';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
 import JoinForm from './Components/Form/JoinForm';
-import Login from './Components/Login';  
+import Login from './Components/Login'; 
+import FoodSathies from './Components/FoodSathies/FoodSathies';
+import FoodSathieDetails from './pages/FoodSathieDetails';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
