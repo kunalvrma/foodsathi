@@ -5,31 +5,28 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [isHovered, setIsHovered] = useState(false); // State for hover effect
+  const [isActive, setIsActive] = useState(false); // State for active effect
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Reset error and success messages
     setError('');
     setSuccessMessage('');
 
     try {
-      // Send login data to backend API
       const response = await fetch('http://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Login successful
         setSuccessMessage('Login successful!');
-        alert(`Welcome, ${data.user.username}`); 
-        // You might want to redirect to a different page or perform other actions
+        alert(`Welcome, ${data.user.username}`);
       } else {
         setError(data.error || 'Failed to log in. Please try again.');
       }
@@ -60,10 +57,22 @@ const LoginPage = () => {
         />
         {error && <p style={styles.error}>{error}</p>}
         {successMessage && <p style={styles.success}>{successMessage}</p>}
-        <button type="submit" style={styles.button}>Login</button>
+        <button
+          type="submit"
+          style={{
+            ...styles.button,
+            ...(isHovered ? styles.buttonHover : {}),
+            ...(isActive ? styles.buttonActive : {}),
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onMouseDown={() => setIsActive(true)}
+          onMouseUp={() => setIsActive(false)}
+        >
+          Login
+        </button>
       </form>
       
-      {/* Registration Link */}
       <p style={styles.registerText}>
         Don't have an account? <a href="/register" style={styles.link}>Register here</a>
       </p>
@@ -99,6 +108,13 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
+    transition: 'background-color 0.3s ease, transform 0.1s ease', 
+  },
+  buttonHover: {
+    backgroundColor: '#45a049',
+  },
+  buttonActive: {
+    transform: 'scale(0.95)', 
   },
   error: {
     color: 'red',

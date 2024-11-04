@@ -9,10 +9,10 @@
 }
 
 body {
-    background: #F2E9D8; /* Match background from App.css */
+    background: #F2E9D8;
 }
 
-/* Register container styles */
+
 .container {
     max-width: 400px;
     margin: 100px auto;
@@ -38,12 +38,18 @@ input {
 button {
     padding: 10px;
     font-size: 16px;
-    background-color: var(--PrimaryColor); /* Use your primary color */
+    background-color: var(--PrimaryColor);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+button:hover{
+    background-color: #528731;
+}
+button:active {
+    transform: scale(0.95);
+}   
 
 .error {
     color: red;

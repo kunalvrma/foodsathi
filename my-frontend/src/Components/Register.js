@@ -105,7 +105,7 @@ const styles = {
   button: {
     padding: '10px',
     fontSize: '16px',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#76B041',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
