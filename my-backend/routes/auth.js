@@ -6,10 +6,10 @@ const router = express.Router();
 
 // Register
 router.post('/register', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, password } = req.body;
 
   // Input validation
-  if (!username || !email || !password) {
+  if (!name || !email || !password) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 
     // Generate token
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.status(200).json({ token, user: { username: user.username, email: user.email } }); // Return user info
+    res.status(200).json({ token, user: { name: user.name, email: user.email } }); // Return user info
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

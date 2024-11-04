@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Connect to MongoDB with a specified database name
-mongoose.connect("mongodb://localhost:27017/register", { // Replace 'myDatabase' with your actual database name
+mongoose.connect("mongodb://localhost:27017/RegisteredData", { // Replace 'myDatabase' with your actual database name
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

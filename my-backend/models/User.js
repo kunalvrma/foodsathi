@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/register", {  // Specify a database name, e.g., "myapp"
+mongoose.connect("mongodb://localhost:27017/RegisteredData", {  // Specify a database name, e.g., "myapp"
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -11,7 +11,7 @@ mongoose.connect("mongodb://localhost:27017/register", {  // Specify a database 
   console.log("Failed to connect", error);
 });
 
-const userSchema = new mongoose.Schema({
+const LoginSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -29,5 +29,5 @@ const userSchema = new mongoose.Schema({
 });
 
 // Define and export the User model
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", LoginSchema);
 module.exports = User;

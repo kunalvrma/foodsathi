@@ -17,6 +17,7 @@ const Register = () => {
     }
 
     try {
+      // Send registration data to backend API
       const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: {
@@ -49,11 +50,7 @@ const Register = () => {
           type="text"
           placeholder="Name"
           value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            setError('');
-            setSuccessMessage('');
-          }}
+          onChange={(e) => setName(e.target.value)}
           style={styles.input}
           required
         />
@@ -61,11 +58,7 @@ const Register = () => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setError('');
-            setSuccessMessage('');
-          }}
+          onChange={(e) => setEmail(e.target.value)}
           style={styles.input}
           required
         />
@@ -73,24 +66,23 @@ const Register = () => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setError('');
-            setSuccessMessage('');
-          }}
+          onChange={(e) => setPassword(e.target.value)}
           style={styles.input}
           required
         />
         {error && <p style={styles.error}>{error}</p>}
         {successMessage && <p style={styles.success}>{successMessage}</p>}
         <button type="submit" style={styles.button}>Register</button>
-      </form>      
+      </form>
+      
       <p style={styles.registerText}>
         Already have an account? <a href="/" style={styles.link}>Login here</a>
       </p>
     </div>
   );
 };
+
+// Updated styles to include success message
 const styles = {
   container: {
     maxWidth: '400px',
