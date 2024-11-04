@@ -1,16 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './app.css';
-import Home from './Components/Home/Home';
-import Navbar from './Components/Navbar/Navbar';
-import VideoSection from './Components/VideoSection/VideoSection';
-import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JoinForm from './Components/Form/JoinForm';
-import Login from './Components/Login';  
+import Home from './Components/Home/Home';
+import ImageCardSection from './Components/ImageCardSection/ImageCard';
+import Login from './Components/Login';
+import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
-import JourneyCount from './Components/JourneyCount/JourneyCount';
+import VideoSection from './Components/VideoSection/VideoSection';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -22,7 +20,6 @@ const App = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
       </Routes>
-
     </Router>
   );
 };
