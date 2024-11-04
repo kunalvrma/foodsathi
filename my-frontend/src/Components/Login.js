@@ -28,7 +28,7 @@ const LoginPage = () => {
       if (response.ok) {
         // Login successful
         setSuccessMessage('Login successful!');
-        alert(`Welcome, ${data.user.username}`); // Assuming user info is returned
+        alert(`Welcome, ${data.user.username}`); 
         // You might want to redirect to a different page or perform other actions
       } else {
         setError(data.error || 'Failed to log in. Please try again.');
