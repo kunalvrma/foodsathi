@@ -7,6 +7,9 @@ import Login from './Components/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
+import JourneyCount from './Components/JourneyCount/JourneyCount';
+import FoodSathies from './Components/FoodSathies/FoodSathies';
+
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
@@ -15,7 +18,9 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<><Home /><VideoSection /><ImageCardSection /></>} />
+        <Route path="/" element={
+          <>
+          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /></>} />
         <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />

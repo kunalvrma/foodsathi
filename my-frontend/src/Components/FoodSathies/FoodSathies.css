@@ -1,55 +1,61 @@
 :root {
     --PrimaryColor: #003366;
+    --leafColor: #76B041;
+    --navlinkColor: #F2E9D8;
     --accentColor: #EAF4E1;
-    --overlayColor: rgba(0, 0, 0, 0.4);
+    --textColor: #212121;
+    --overlayColor: rgba(0, 0, 0, 0.4); /* Make sure this variable is defined for overlays */
 }
 
 .food-sathi-container {
     text-align: center;
-    padding: 2em;
-    background-color: #f9f9f9;
+    margin: 2em 0;
 }
 
 .foodSathi-heading {
     font-size: 2em;
     font-weight: bold;
-    color: var(--PrimaryColor);
-    cursor: pointer;
-    text-decoration: underline;
     margin-bottom: 1em;
+    color: var(--PrimaryColor);
+    text-decoration: underline; /* Changed to underline for better consistency */
 }
 
 .food-sathi-cards {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 1.5em;
     flex-wrap: wrap;
 }
 
 .food-sathi-card {
-    width: 250px;
-    height: 250px;
+    width: 300px; /* Consistent width with the ImageCardSection */
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--accentColor);
 }
 
 .card-content {
-    width: 100%;
-    height: 100%;
     position: relative;
+    padding: 1em; /* Ensured padding is consistent */
 }
 
 .card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    position: relative;
 }
 
-.food-sathi-card:hover .card-image {
-    transform: scale(1.1);
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.food-sathi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow increase */
 }
 
 .card-overlay {
@@ -59,38 +65,30 @@
     width: 100%;
     height: 100%;
     background-color: var(--overlayColor);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     opacity: 0;
     transition: opacity 0.3s ease;
-    text-align: center;
-    padding: 1em;
 }
 
 .food-sathi-card:hover .card-overlay {
     opacity: 1;
 }
 
-.card-title {
+.card-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--textColor); /* Changed to match the text color from ImageCardSection */
+    text-align: center;
+}
+
+.food-sathi-title {
     font-size: 1.5em;
-    font-weight: bold;
     margin-bottom: 0.5em;
+    color: var(--textColor); /* Updated color for consistency */
 }
 
-.card-description {
-    font-size: 0.9em;
-}
-
-@media (max-width: 768px) {
-    .food-sathi-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .food-sathi-card {
-        width: 80%;
-    }
+.food-sathi-description {
+    font-size: 1em;
+    color: var(--textColor); /* Updated color for consistency */
 }

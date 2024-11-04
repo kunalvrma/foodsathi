@@ -40,13 +40,17 @@ const FoodSathies = () => {
                 Food Sathies
             </h2>
             <div className="food-sathi-cards">
-                {foodSathiData.map((card) => (
-                    <Link key={card.id} to={card.link} className="food-sathi-card">
-                        <div className="card-content">
-                            <img src={card.image} alt={card.title} className="card-image" />
-                            <div className="card-overlay">
-                                <h3 className="card-title">{card.title}</h3>
-                                <p className="card-description">{card.description}</p>
+                {foodSathiData.map((sathi) => (
+                    <Link to={sathi.link} key={sathi.id} className="food-sathi-card">
+                        <div className="food-sathi-card-content">
+                            <img
+                                src={sathi.image}
+                                alt={sathi.title}
+                                className="food-sathi-card-image"
+                            />
+                            <div className="food-sathi-overlay">
+                                <h3 className="food-sathi-title">{sathi.title}</h3>
+                                <p className="food-sathi-description">{sathi.description}</p>
                             </div>
                         </div>
                     </Link>
