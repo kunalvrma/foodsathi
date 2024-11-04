@@ -9,13 +9,7 @@ const Home = () => {
     navigate('/login'); // This is correct
   };
 
-  return (
-    <div>
-      <h1>Welcome to FoodSathi</h1>
-      <p>Your platform for sustainable food redistribution.</p>
-      <button className="login-button" onClick={handleLoginClick}>Login</button> {/* This is correct */}
-    </div>
-  );
+  
 };
 
 export default Home;
