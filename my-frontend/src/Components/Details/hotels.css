@@ -1,0 +1,87 @@
+.hotel-section {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--PrimaryColor);
+    margin-bottom: 1em;
+}
+
+/* Container for the hotel cards */
+.hotel-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* Each hotel card */
+.hotel-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid var(--PrimaryColor);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image and details section within each card */
+.hotel-image {
+    width: 200px;
+    height: auto;
+}
+
+.hotel-details {
+    padding: 1em;
+    flex: 1;
+}
+
+.hotel-details h3 {
+    color: var(--leafColor);
+}
+
+.website-link {
+    color: var(--PrimaryColor);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.5em;
+    display: inline-block;
+}
+
+.website-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hotel-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hotel-image {
+        width: 100%; /* Make the image full width on small screens */
+    }
+
+    .hotel-details {
+        width: 100%;
+        text-align: left;
+        padding: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5em; /* Reduce font size on very small screens */
+    }
+
+    .hotel-card {
+        width: 100%;
+    }
+}

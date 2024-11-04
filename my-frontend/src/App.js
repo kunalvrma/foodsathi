@@ -5,11 +5,10 @@ import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import VideoSection from './Components/VideoSection/VideoSection';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
-import JourneyCount from './Components/JourneyCount/JourneyCount';
 import JoinForm from './Components/Form/JoinForm';
-import Login from './Components/Login'; 
-import FoodSathies from './Components/FoodSathies/FoodSathies';
-import FoodSathieDetails from './pages/FoodSathieDetails';
+import Login from './Components/Login';  
+import Register from './Components/Register';
+import JourneyCount from './Components/JourneyCount/JourneyCount';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -23,11 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
       </Routes>
-      <JourneyCount />
-      <Routes>
-        <Route path="/" element={<FoodSathies />} />
-        <Route path="/details/:id" element={<FoodSathieDetails />} />
-      </Routes>
+
     </Router>
   );
 };

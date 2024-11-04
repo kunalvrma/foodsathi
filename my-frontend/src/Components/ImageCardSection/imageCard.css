@@ -49,7 +49,7 @@
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
-    color: var(--navlinkColor);
+    color: var(--accentColor);
     text-align: center;
     padding: 1em;
     border-radius: 8px;

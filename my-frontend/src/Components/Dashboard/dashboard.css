@@ -1,0 +1,122 @@
+/* src/Components/Dashboard/Dashboard.css */
+:root {
+    --PrimaryColor: #003366;
+    --leafColor: #76B041;
+    --navlinkColor: #F2E9D8;
+    --accentColor: #EAF4E1;
+    --textColor: #212121;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--PrimaryColor);
+    color: white;
+    padding: 1em;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2em;
+    background-color: var(--accentColor);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.header h1 {
+    font-size: 2em;
+    color: var(--PrimaryColor);
+}
+
+.header-actions button {
+    background-color: var(--PrimaryColor);
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    margin-left: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.stats-section {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    margin-bottom: 2em;
+}
+
+.stat-card {
+    background-color: var(--navlinkColor);
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin-bottom: 0.5em;
+    color: var(--PrimaryColor);
+}
+
+.stat-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--leafColor);
+}
+
+.registrations-section h2 {
+    color: var(--PrimaryColor);
+    margin-bottom: 1em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 0.75em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: var(--PrimaryColor);
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--accentColor);
+}
+
+table tr:hover {
+    background-color: var(--navlinkColor);
+}
