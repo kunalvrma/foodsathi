@@ -8,6 +8,7 @@ import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JoinForm from './Components/Form/JoinForm';
 import Login from './Components/Login';  
 import Register from './Components/Register';
+import JourneyCount from './Components/JourneyCount/JourneyCount';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
       </Routes>
+
     </Router>
   );
 };

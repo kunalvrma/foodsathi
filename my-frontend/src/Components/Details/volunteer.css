@@ -1,0 +1,42 @@
+.volunteer-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.volunteer-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.volunteer-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.volunteer-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.volunteer-photo {
+    width: 100%;
+    height: auto;
+}
+
+.volunteer-details {
+    padding: 15px;
+}
+
+.volunteer-details h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.volunteer-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
