@@ -15,6 +15,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
+    "mongod": "^2.0.0",
     "mongoose": "^8.8.0",
     "touch": "^3.1.1"
   }

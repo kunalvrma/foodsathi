@@ -1,21 +1,43 @@
-// Register.js
 import React, { useState } from 'react';
-import './Register.css'; // Import your styles
+import './Register.css';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder for registration logic
-    if (name && email && password) {
-      alert('Registration Successful!');
-      setError('');
-    } else {
+
+    if (!name || !email || !password) {
       setError('Please fill in all fields');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage('Registration successful! Please log in.');
+        setError('');
+        setName('');
+        setEmail('');
+        setPassword('');
+      } else {
+        setError(data.error || 'Failed to register. Please try again.');
+      }
+    } catch (err) {
+      setError('Failed to connect to the server. Please try again later.');
     }
   };
 
@@ -27,7 +49,11 @@ const Register = () => {
           type="text"
           placeholder="Name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            setError('');
+            setSuccessMessage('');
+          }}
           style={styles.input}
           required
         />
@@ -35,7 +61,11 @@ const Register = () => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError('');
+            setSuccessMessage('');
+          }}
           style={styles.input}
           required
         />
@@ -43,23 +73,24 @@ const Register = () => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setError('');
+            setSuccessMessage('');
+          }}
           style={styles.input}
           required
         />
         {error && <p style={styles.error}>{error}</p>}
+        {successMessage && <p style={styles.success}>{successMessage}</p>}
         <button type="submit" style={styles.button}>Register</button>
-      </form>
-      
-      {/* Link back to login */}
+      </form>      
       <p style={styles.registerText}>
         Already have an account? <a href="/" style={styles.link}>Login here</a>
       </p>
     </div>
   );
 };
-
-// Simple styles
 const styles = {
   container: {
     maxWidth: '400px',
@@ -90,6 +121,9 @@ const styles = {
   },
   error: {
     color: 'red',
+  },
+  success: {
+    color: 'green',
   },
   registerText: {
     textAlign: 'center',
