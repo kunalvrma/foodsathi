@@ -1,21 +1,40 @@
 import React, { useState } from 'react';
-import Register from './Register';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Placeholder for login logic
-    if (email === 'test@example.com' && password === 'password') {
-      // Successful login logic here
-      alert('Login Successful!');
-      setError('');
-    } else {
-      setError('Invalid email or password');
+    // Reset error and success messages
+    setError('');
+    setSuccessMessage('');
+
+    try {
+      // Send login data to backend API
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Login successful
+        setSuccessMessage('Login successful!');
+        alert(`Welcome, ${data.user.username}`); 
+        // You might want to redirect to a different page or perform other actions
+      } else {
+        setError(data.error || 'Failed to log in. Please try again.');
+      }
+    } catch (err) {
+      setError('Failed to connect to the server. Please try again later.');
     }
   };
 
@@ -40,6 +59,7 @@ const LoginPage = () => {
           required
         />
         {error && <p style={styles.error}>{error}</p>}
+        {successMessage && <p style={styles.success}>{successMessage}</p>}
         <button type="submit" style={styles.button}>Login</button>
       </form>
       
@@ -82,6 +102,9 @@ const styles = {
   },
   error: {
     color: 'red',
+  },
+  success: {
+    color: 'green',
   },
   registerText: {
     textAlign: 'center',
