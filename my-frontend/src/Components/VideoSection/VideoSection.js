@@ -1,6 +1,6 @@
 import React from 'react';
+import videoSrc from './media/home_vedio.mp4'; // Import the video
 import './videoSection.css'; // Make sure to import the CSS file
-import videoSrc from './media/3505936067-preview.mp4'; // Import the video
 
 const VideoSection = () => {
     return (
