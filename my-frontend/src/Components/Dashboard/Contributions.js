@@ -15,7 +15,7 @@ const Contributions = () => {
 
   return (
     <div className="contribution-list">
-      <h3>Contributions</h3>
+      <h3 className="headingContri">Contributions</h3>
       <ul>
         {visibleContributions.map((contribution, index) => (
           <li key={index}>

@@ -1,16 +1,16 @@
 import React from 'react';
+import { useUser } from '../../UserContext'; // Import the useUser hook
 
 const About = () => {
+  const { user } = useUser(); // Get user data from context
+
   return (
     <div className="about">
       <h3>About Me</h3>
-      <p>
-        I am a dedicated volunteer passionate about food redistribution.
-        My goal is to connect surplus food resources with those in need.
-      </p>
-      
+      <p>{user.about || 'No about information provided.'}</p>
     </div>
   );
 };
 
 export default About;
+

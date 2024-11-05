@@ -17,6 +17,7 @@
   display: flex;
   height: 100vh;
   font-family: Arial, sans-serif;
+  margin-top: 93px;
 }
 
 /* Sidebar styling */
@@ -119,11 +120,15 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px; /* Space below profile section */
+  padding: 10px; /* Add padding for better spacing */
+  background-color: var(--accentColor); /* Light background for contrast */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .profile img {
-  width: 90px; /* Size of profile image */
-  height: 90px; /* Size of profile image */
+  width: 130px; /* Size of profile image */
+  height: 130px; /* Size of profile image */
   border-radius: 50%; /* Circular image */
   margin-right: 15px; /* Space between image and text */
 }
@@ -131,13 +136,27 @@
 .profile h2 {
   margin: 0; /* Remove default margin */
   color: var(--PrimaryColor); /* Primary color for name */
+  font-size: 1.5rem; /* Adjust font size for better readability */
 }
 
 .profile p {
   color: #555; /* Dark gray for description */
   margin: 5px 0 0; /* Top margin only */
+  font-size: 1rem; /* Set a base font size */
+}
+.profile button {
+  margin-top: 10px; /* Space above the button */
+  padding: 8px 12px; /* Padding for the button */
+  background-color: var(--PrimaryColor); /* Background color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
 }
 
+.profile button:hover {
+  background-color: darken(var(--PrimaryColor), 10%); /* Darken on hover */
+}
 /* Contributions section adjustments */
 .contribution-list {
   max-width: 100%; /* Ensures it does not exceed the container width */
@@ -150,7 +169,10 @@
   box-sizing: border-box; /* Ensures padding is included within width */
   overflow-y: auto; 
 }
-
+.contribution-list .headingContri{
+    font-size: 1.5rem;
+    color: var(--textColor);
+}
 .contribution-list::-webkit-scrollbar-thumb {
   background-color: var(--PrimaryColor); /* Color of the scrollbar thumb */
   border-radius: 4px;
