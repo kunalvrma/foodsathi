@@ -1,42 +1,26 @@
-import React, { useState, useEffect } from "react";
-import "./navbar.css";
-import { MdHandshake,MdAccountCircle } from "react-icons/md";
+import React, { useState } from "react";
+import { MdHandshake, MdAccountCircle } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
 import { TbGridDots } from "react-icons/tb";
-import { Link } from 'react-router-dom';
-
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
+import "./navbar.css";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
-  const [isTranslateOpen, setIsTranslateOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const toggleNav = () => setIsActive(!isActive);
-  const handleTranslateClick = () => setIsTranslateOpen(!isTranslateOpen);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest('.translate-dropdown') && !event.target.closest('.translate-icon')) {
-        setIsTranslateOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   const navItems = [
-    { name: "Home", link: "/" }, // Update link to home
+    { name: "Home", link: "/" },
     { name: "About Us", link: "#" },
     { name: "Join", link: "/form" },
     { name: "Learn", link: "#" },
+    { name:"Request Donation", link: "/donationRequestForm" },
   ];
 
   const handleLoginClick = () => {
-    navigate('/login'); // Use navigate to redirect to the login page
+    navigate('/login');
   };
 
   return (
@@ -59,16 +43,16 @@ const Navbar = () => {
               </li>
             ))}
             <li className="navItem">
-              <button className="btn" aria-label="Login Button" onClick={handleLoginClick}>Login</button> {/* Change to button */}
+              <button className="btn" aria-label="Login Button" onClick={handleLoginClick}>Login</button>
             </li>
             <li className="navItem">
-              <button className="btn" aria-label="Donate Button"><a href="#">Donate</a></button>
+              <Link to="/donationForm" className="btn" aria-label="Donate Button">Donate</Link>
             </li>
             <li className="navItem">
-      <Link to="/dashboard" className="myProfile">
-        <MdAccountCircle />
-      </Link>
-      </li>
+              <Link to="/dashboard" className="myProfile">
+                <MdAccountCircle />
+              </Link>
+            </li>
             <div onClick={toggleNav} className="closeNavBar" aria-label="Close Navigation">
               <IoIosCloseCircle className="icons" />
             </div>

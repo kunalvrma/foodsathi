@@ -5,20 +5,16 @@ import { CiPhone } from "react-icons/ci";
 import { IoMdLink } from "react-icons/io";
 
 const Profile = () => {
-  const { user, updateUser } = useUser(); // Get user data from context
-  const handleResetImage = () => {
-    if (updateUser) {
-      updateUser({ profileImage: './media/41B3Q0XgFVL._AC_UF1000,1000_QL80_.jpg' }); // Reset to default image
-    } 
-  };
+  const { user } = useUser(); // Get user data from context
+
   return (
     <div className="profile">
       <img 
-  src={user.profileImage || require('./media/41B3Q0XgFVL._AC_UF1000,1000_QL80_.jpg')} // Use require for dynamic import
-  alt="Profile" 
-/>
+        src={user.profileImage || require('./media/41B3Q0XgFVL._AC_UF1000,1000_QL80_.jpg')} // Use require for dynamic import
+        alt="Profile" 
+      />
       <div>
-        <h2 >{user.username}</h2>
+        <h2>{user.username}</h2>
         <div>
           {user.tags.length > 0 ? (
             user.tags.map((tag, index) => (
