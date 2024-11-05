@@ -37,3 +37,6 @@ app.use('/api/auth', authRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+  //chat_bot
+  const chatBotRoute = require('./routes/chatbot/chatBot');
+app.use('/api/chatBot', chatbotRoute);

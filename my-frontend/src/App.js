@@ -1,21 +1,22 @@
 import React from 'react';
 import './app.css';
+import Profile from './Components/Dashboard/Profile';
+import FoodSathies from './Components/FoodSathies/FoodSathies';
 import JoinForm from './Components/Form/JoinForm';
 import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
+import JourneyCount from './Components/JourneyCount/JourneyCount';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
-import JourneyCount from './Components/JourneyCount/JourneyCount';
-import FoodSathies from './Components/FoodSathies/FoodSathies';
-import Profile from './Components/Dashboard/Profile';
+//import chatBot from './Components/chatbot/chatBot';
 
-import { UserProvider } from './UserContext';
 import Dashboard from './Components/Dashboard/Dashboard';
+import { UserProvider } from './UserContext';
 //import Sidebar from './Components/Dashboard/Sidebar';
-import Settings from './Components/Dashboard/Settings/Settings';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Settings from './Components/Dashboard/Settings/Settings';
 
 const App = () => {
   
