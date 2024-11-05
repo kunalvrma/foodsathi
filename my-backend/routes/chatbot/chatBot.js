@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 
 const CHATBOT_API_URL = "food_sathi_bot";
-const API_KEY = "5GT5NKYJKX54JZTCFBMQS6TGF7HBSAZPW72A";
+const API_KEY = "my API kEY IN notepad";
 
 router.post('/chat', async (req, res) => {
     try {
