@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./navbar.css";
-import { MdHandshake } from "react-icons/md";
+import { MdHandshake,MdAccountCircle } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
 import { TbGridDots } from "react-icons/tb";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Navbar = () => {
@@ -65,23 +65,16 @@ const Navbar = () => {
               <button className="btn" aria-label="Donate Button"><a href="#">Donate</a></button>
             </li>
             <li className="navItem">
-              <div className="translate-icon" onClick={handleTranslateClick} aria-label="Translate Language">
-                <FontAwesomeIcon icon={faGlobe} />
-              </div>
-            </li>
-            {isTranslateOpen && (
-              <div className={`translate-dropdown ${isTranslateOpen ? 'show' : ''}`}>
-                <FontAwesomeIcon icon={faTimes} className="closeNavbar" onClick={handleTranslateClick} />
-                <div id="google_translate_element"></div>
-              </div>
-            )}
-            
+      <Link to="/dashboard" className="myProfile">
+        <MdAccountCircle />
+      </Link>
+      </li>
             <div onClick={toggleNav} className="closeNavBar" aria-label="Close Navigation">
               <IoIosCloseCircle className="icons" />
             </div>
           </ul>
         </div>
-
+        
         <div onClick={toggleNav} className="toggleNavbar" aria-label="Toggle Navigation">
           <TbGridDots />
         </div>
