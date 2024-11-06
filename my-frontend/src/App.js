@@ -1,5 +1,6 @@
 import React from 'react';
 import './app.css';
+import Dashboard from './Components/Dashboard/Dashboard';
 import Profile from './Components/Dashboard/Profile';
 import FoodSathies from './Components/FoodSathies/FoodSathies';
 import JoinForm from './Components/Form/JoinForm';
@@ -10,9 +11,6 @@ import Login from './Components/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
-//import chatBot from './Components/chatbot/chatBot';
-
-import Dashboard from './Components/Dashboard/Dashboard';
 import { UserProvider } from './UserContext';
 //import Sidebar from './Components/Dashboard/Sidebar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
@@ -34,7 +32,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <>
-          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount/> </>} />
+          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <chatBot/>   </>} />
         <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />

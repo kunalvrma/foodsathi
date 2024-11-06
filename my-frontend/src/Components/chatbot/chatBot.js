@@ -1,28 +1,47 @@
+import { sendMessageToChatbot } from '.\services/api';
 import React, { useState } from 'react';
-import { sendMessageToChatbot } from '../services/api';
+import "./chatBot.css";
+
+
 
 function ChatBot() {
-    const [message, setMessage] = useState('');
-    const [response, setResponse] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
 
-    const handleSendMessage = async () => {
-        const chatbotResponse = await sendMessageToChatbot(message);
-        setResponse(chatbotResponse || "Error communicating with chatbot");
-        setMessage('');
-    };
+  const handleSendMessage = async () => {
+    const newMessage = { user: 'You', text: input };
+    setMessages([...messages, newMessage]);
+    setInput('');
 
-    return (
-        <div>
-            <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Ask something..."
-            />
-            <button onClick={handleSendMessage}>Send</button>
-            <div>Response: {response}</div>
-        </div>
-    );
+    try {
+      const botResponse = await sendMessageToChatbot(input);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { user: 'Bot', text: botResponse.reply },
+      ]);
+    } catch (error) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { user: 'Bot', text: "I'm having trouble responding." },
+      ]);
+    }
+  };
+
+  return (
+    <div className="chatbot">
+      <div className="messages">
+        {messages.map((msg, index) => (
+          <p key={index}><strong>{msg.user}:</strong> {msg.text}</p>
+        ))}
+      </div>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Type a message"
+      />
+      <button onClick={handleSendMessage}>Send</button>
+    </div>
+  );
 }
 
 export default chatBot;
