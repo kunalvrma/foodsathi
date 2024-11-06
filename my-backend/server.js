@@ -6,6 +6,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const ngoRoutes = require('./routes/ngo');
 const restaurantRoutes = require('./routes/restaurant');
+const chatbotRoute = require('./routes/chatbot/chatBot');//chatbot
 
 dotenv.config();
 connectDB();
@@ -28,3 +29,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+//chatbot
+app.use('/api/chatbot', chatbotRoute);
+

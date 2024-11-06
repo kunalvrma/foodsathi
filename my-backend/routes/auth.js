@@ -9,4 +9,7 @@ router.post('/register', authController.register); // Ensure this maps to the co
 // Login user (restaurant or NGO)
 router.post('/login', authController.login); // Ensure this maps to the correct function
 
+//chat bot
+
+router.post('/someRoute', someController);
 module.exports = router;
