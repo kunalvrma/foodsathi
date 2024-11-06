@@ -21,6 +21,7 @@ import Settings from './Components/Dashboard/Settings/Settings';
 import DonationForm from './Components/DonationForm/DonationForm';
 import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
 
+//import MatchFoundDialog from './Components/MatchFoundDialog/MatchFoundDialog';
 const App = () => {
   
   return (
@@ -30,7 +31,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <>
-          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /></>} />
+          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount/> </>} />
         <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
