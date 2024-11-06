@@ -18,6 +18,9 @@ import { UserProvider } from './UserContext';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Settings from './Components/Dashboard/Settings/Settings';
 
+import DonationForm from './Components/DonationForm/DonationForm';
+import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
+
 const App = () => {
   
   return (
@@ -33,7 +36,9 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/donationForm" element={<DonationForm/>} />
+        <Route path="/donationRequestForm" element={<DonationRequestForm/>} />
       </Routes>
      
     </Router>

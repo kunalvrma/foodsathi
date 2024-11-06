@@ -157,6 +157,7 @@
 .profile button:hover {
   background-color: darken(var(--PrimaryColor), 10%); /* Darken on hover */
 }
+
 /* Contributions section adjustments */
 .contribution-list {
   max-width: 100%; /* Ensures it does not exceed the container width */
