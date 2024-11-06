@@ -9,6 +9,8 @@ router.post('/register', authController.register);
 
 // Login user (restaurant or NGO)
 router.post('/login', authController.login);
+
 //chat bot
-module.exports = router;
+
 router.post('/someRoute', someController);
+module.exports = router;
