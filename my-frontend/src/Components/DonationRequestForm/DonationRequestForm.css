@@ -60,4 +60,16 @@
     color: red; /* Red color for error messages */
     margin-bottom: 15px; /* Space below error messages */
   }
-  
+  /* DonationRequestForm.css */
+.overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}

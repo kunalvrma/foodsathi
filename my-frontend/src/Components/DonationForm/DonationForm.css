@@ -1,52 +1,88 @@
+/* Donation Section */
 .donation-section {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Keeps form aligned to the top left */
-    height: 100vh;
-    background-image: url('./media/image4.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    overflow-y: auto; /* Adds a vertical scroll bar if needed */
-    
+  display: flex;
+  align-items: flex-start; /* Keeps form aligned to the top */
+  justify-content: center; /* Center the form horizontally */
+  height: 100vh;
+  background-image: url('./media/image4.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  overflow-y: auto;
+  
 }
-  
+
+.donation-form {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 70px 0; /* Add spacing from top of page */
+}
+
+.donation-form h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.donation-form label {
+  display: block;
+  margin: 10px 0;
+}
+
+.donation-form input,
+.donation-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.donation-form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donation-form button:hover {
+  background-color: #45a049;
+}
+
+/* Overlay Styling */
+.donation-section .overlay {
+  position: fixed;
+  top: 0; /* Fixes positioning */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensures it overlays other content */
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
   .donation-form {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 700px;
-    width: 100%;
-    margin-left: 50px; /* Aligns the form to the left */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-    margin-top: 500px;
-    
+    max-width: 90%; /* Adjust width on smaller screens */
+    padding: 15px;
   }
-  
+
   .donation-form h2 {
-    margin-bottom: 20px;
-    font-size:2em;
+    font-size: 1.5em;
   }
-  
-  .donation-form label {
-    display: block;
-    margin: 10px 0;
-  }
-  
-  .donation-form input,
-  .donation-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-  }
-  
-  .donation-form button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+}

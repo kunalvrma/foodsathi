@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './DonationRequestForm.css';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
+import MatchNotFound from '../MatchNotFound/MatchNotFound';
 
 function DonationRequestForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -14,11 +15,11 @@ function DonationRequestForm() {
     email: '',
     amount: '',
   });
-
-  const [isLoading, setIsLoading] = useState(false); // State to track loading status
-  const [isMatchFound, setIsMatchFound] = useState(false); // State for match found dialog
+  const [isLoading, setIsLoading] = useState(false);
+  const [matchNotFound, setMatchNotFound] = useState(false);
+  const [isMatchFound, setIsMatchFound] = useState(false);
   const [donorName] = useState(formData.name); // Assume donor name is from formData
-  const receiverName=""; // Replace with actual receiver name
+  const receiverName = ""; // Replace with actual receiver name
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -34,23 +35,7 @@ function DonationRequestForm() {
     };
 
     const errorCallback = (error) => {
-      switch (error.code) {
-        case error.PERMISSION_DENIED:
-          setError('User denied the request for Geolocation.');
-          break;
-        case error.POSITION_UNAVAILABLE:
-          setError('Location information is unavailable.');
-          break;
-        case error.TIMEOUT:
-          setError('The request to get user location timed out.');
-          break;
-        case error.UNKNOWN_ERROR:
-          setError('An unknown error occurred.');
-          break;
-        default:
-          setError('An unexpected error occurred while fetching the location.');
-          break;
-      }
+      setError(error.message || 'An error occurred while fetching location.');
     };
 
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -65,32 +50,50 @@ function DonationRequestForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true); // Set loading to true when the button is clicked
-    
+    setIsLoading(true);
 
-    // Simulate an API call or some processing
+    // Simulate an API call or match-checking logic
     setTimeout(() => {
-      setIsLoading(false); // Reset loading after the processing is done
-      setIsMatchFound(true);
-      console.log("Form submitted:", formData);
-      console.log("Current Location:", location);
-      // Handle the form submission or further processing here
-    }, 3000); // Simulating a 3-second loading time
+      setIsLoading(false);
+      const isMatch = checkForMatch(); // Dummy function to simulate match check
+
+      if (isMatch) {
+        setIsMatchFound(true);
+      } else {
+        setMatchNotFound(true);
+      }
+    }, 3000);
   };
-  const closeModal = () => {
-    setIsMatchFound(false); // Hide the dialog
+  const checkForMatch = () => {
+    // Replace this logic with actual criteria for matching
+    const mockMatchCondition = false; // Set based on actual match criteria
+    return mockMatchCondition;
+  };
+  const handleTrack=() => {
+    alert("Tracking started!");
+  };
+  
+  const closeMatchNotFoundDialog = () => {
+    setMatchNotFound(false);
   };
 
   return (
     <div className="donation-request-section">
-      {isLoading && <LoadingDialog />} {/* Show loading dialog when isLoading is true */}
+      {isLoading && <LoadingDialog />}
       {isMatchFound && (
-        <MatchFoundDialog 
-          donorName={donorName} 
-          receiverName={receiverName} 
-          onClose={closeModal} 
+        <MatchFoundDialog
+          donorName={donorName}
+          receiverName={receiverName}
+          onClose={() => setIsMatchFound(false)}
+          onTrack={handleTrack}
         />
       )}
+      {matchNotFound && (
+        <div className="overlay-container" onClick={closeMatchNotFoundDialog}>
+          <MatchNotFound />
+        </div>
+      )}
+
       <form className="donation-request-form" onSubmit={handleSubmit}>
         <h2>Request Food Donation</h2>
         {error && <p className="error">{error}</p>}

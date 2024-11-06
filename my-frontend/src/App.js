@@ -20,6 +20,9 @@ import Settings from './Components/Dashboard/Settings/Settings';
 
 import DonationForm from './Components/DonationForm/DonationForm';
 import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
+import DonorTracking from './Components/DonationTracking/DonorTracking';
+import RecieverTracking from './Components/DonationTracking/RecieverTracking';
+
 
 //import MatchFoundDialog from './Components/MatchFoundDialog/MatchFoundDialog';
 const App = () => {
@@ -40,6 +43,9 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/donationForm" element={<DonationForm/>} />
         <Route path="/donationRequestForm" element={<DonationRequestForm/>} />
+        <Route path="/track-donation-donor" element={<DonorTracking />} />
+        <Route path="/track-donation-receiver" element={<RecieverTracking />} />
+
       </Routes>
      
     </Router>

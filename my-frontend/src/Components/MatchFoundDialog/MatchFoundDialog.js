@@ -1,10 +1,9 @@
-
 // src/Components/DonationRequestForm/MatchFoundDialog.js
 import React from 'react';
-import './MatchFoundDialog.css'; // You can style this as needed
-import { MdHandshake} from "react-icons/md";
+import './MatchFoundDialog.css';
+import { MdHandshake } from 'react-icons/md';
 
-function MatchFoundDialog({ donorName, receiverName, onClose }) {
+function MatchFoundDialog({ donorName, receiverName, onClose, onTrack }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -13,7 +12,11 @@ function MatchFoundDialog({ donorName, receiverName, onClose }) {
         <p>Food Donor: {donorName}</p>
         <MdHandshake className="sathiLogo" />
         <p>Food Receiver: {receiverName}</p>
-        <button onClick={onClose}>Close</button>
+
+        <div className="button-container">
+          <button className="track-button" onClick={onTrack}>Track</button>
+          <button className="close-button" onClick={onClose}>Close</button>
+        </div>
       </div>
     </div>
   );

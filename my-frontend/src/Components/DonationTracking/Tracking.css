@@ -1,0 +1,152 @@
+/* Root color variables */
+:root {
+  --PrimaryColor: #003366;
+  --leafColor: #76B041;
+  --navlinkColor: #F2E9D8;
+  --accentColor: #EAF4E1;
+  --textColor: #212121;
+}
+
+
+/* Main container for centering the section */
+.tracking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px; /* Limit the width */
+  padding: 20px;
+  background-color: var(--accentColor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  
+}
+/* Timeline styles */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-left: 2px solid var(--leafColor); /* Vertical line */
+  padding-left: 20px; /* Offset for line */
+  margin-bottom: 20px;
+  margin-left: 200px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -28px; /* Aligns with vertical line */
+  width: 12px;
+  height: 12px;
+  background-color: var(--leafColor);
+  border-radius: 50%;
+}
+
+.timeline-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  color: var(--PrimaryColor);
+}
+
+.timeline-label {
+  font-size: 16px;
+  color: var(--textColor);
+}
+
+.timeline-step.active .timeline-icon {
+  color: var(--PrimaryColor);
+}
+
+.sathi-symbol {
+  position: absolute;
+  left: -20px;
+  transition: top 0.3s ease;
+  font-size: 24px;
+  color: var(--PrimaryColor);
+}
+
+/* Button Styles */
+.next-stage-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.next-stage-button:hover {
+  background-color: #0056b3;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile (up to 600px wide) */
+@media (max-width: 600px) {
+  .tracking-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-icon {
+    font-size: 18px;
+  }
+
+  .timeline-label {
+    font-size: 14px;
+  }
+
+  .next-stage-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Tablet (600px to 1024px wide) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .tracking-container {
+    max-width: 80%;
+  }
+
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline-icon {
+    font-size: 20px;
+  }
+
+  .timeline-label {
+    font-size: 15px;
+  }
+}
