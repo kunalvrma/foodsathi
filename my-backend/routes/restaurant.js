@@ -5,7 +5,7 @@ const router = express.Router();
 const restaurantController = require('../controllers/restaurantController');
 
 // Add food items available for donation
-router.post('/addFoodItems', restaurantController.addFoodItems);
+//router.post('/addFoodItems', restaurantController.addFoodItems);
 
 // List available food items
 router.get('/:restaurantId/availableFood', restaurantController.listAvailableFood);
