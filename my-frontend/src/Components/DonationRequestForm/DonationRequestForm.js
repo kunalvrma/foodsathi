@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './DonationRequestForm.css';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
+import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
 
 function DonationRequestForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -15,6 +16,9 @@ function DonationRequestForm() {
   });
 
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [isMatchFound, setIsMatchFound] = useState(false); // State for match found dialog
+  const [donorName] = useState(formData.name); // Assume donor name is from formData
+  const receiverName=""; // Replace with actual receiver name
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -62,19 +66,31 @@ function DonationRequestForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true); // Set loading to true when the button is clicked
+    
 
     // Simulate an API call or some processing
     setTimeout(() => {
       setIsLoading(false); // Reset loading after the processing is done
+      setIsMatchFound(true);
       console.log("Form submitted:", formData);
       console.log("Current Location:", location);
       // Handle the form submission or further processing here
     }, 3000); // Simulating a 3-second loading time
   };
+  const closeModal = () => {
+    setIsMatchFound(false); // Hide the dialog
+  };
 
   return (
     <div className="donation-request-section">
       {isLoading && <LoadingDialog />} {/* Show loading dialog when isLoading is true */}
+      {isMatchFound && (
+        <MatchFoundDialog 
+          donorName={donorName} 
+          receiverName={receiverName} 
+          onClose={closeModal} 
+        />
+      )}
       <form className="donation-request-form" onSubmit={handleSubmit}>
         <h2>Request Food Donation</h2>
         {error && <p className="error">{error}</p>}
