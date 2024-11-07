@@ -1,8 +1,7 @@
-import { sendMessageToChatbot } from '.\services/api';
+import { sendMessageToBot } from '../../api';  // Corrected import
+
 import React, { useState } from 'react';
 import "./chatBot.css";
-
-
 
 function ChatBot() {
   const [messages, setMessages] = useState([]);
@@ -14,7 +13,7 @@ function ChatBot() {
     setInput('');
 
     try {
-      const botResponse = await sendMessageToChatbot(input);
+      const botResponse = await sendMessageToBot(input);  // Calling the API function
       setMessages((prevMessages) => [
         ...prevMessages,
         { user: 'Bot', text: botResponse.reply },
@@ -44,4 +43,4 @@ function ChatBot() {
   );
 }
 
-export default chatBot;
+export default ChatBot;

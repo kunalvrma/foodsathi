@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.23c94263.css",
-    "main.js": "/static/js/main.9573a805.js",
+    "main.css": "/static/css/main.dcbd5497.css",
+    "main.js": "/static/js/main.8561fa3a.js",
+    "static/media/home_vedio.mp4": "/static/media/home_vedio.1250cb5cb72aa0980d89.mp4",
     "static/media/fooddoantion1.jpeg": "/static/media/fooddoantion1.4fbce1a61e9d607a61ab.jpeg",
-    "static/media/3505936067-preview.mp4": "/static/media/3505936067-preview.e542d58b8f17b54e25e4.mp4",
+    "static/media/image4.jpg": "/static/media/image4.081600f84446784e1d0b.jpg",
+    "static/media/ngo0.jpg": "/static/media/ngo0.bc45b78258f1475a94da.jpg",
+    "static/media/ngo1.jpg": "/static/media/ngo1.449775bcc10f5416e0e3.jpg",
+    "static/media/ngo5.jpg": "/static/media/ngo5.c67230e2c2d69059632a.jpg",
     "static/media/fooddonation2.jpg": "/static/media/fooddonation2.3006f194a4506336bb9c.jpg",
     "static/media/fooddonatio3.jpg": "/static/media/fooddonatio3.51edb563f23f1a9b8731.jpg",
+    "static/media/41B3Q0XgFVL._AC_UF1000,1000_QL80_.jpg": "/static/media/41B3Q0XgFVL._AC_UF1000,1000_QL80_.028f1af067349beffc2f.jpg",
+    "static/media/joinus.avif": "/static/media/joinus.a355171e6cdefb028b3c.avif",
     "index.html": "/index.html",
-    "main.23c94263.css.map": "/static/css/main.23c94263.css.map",
-    "main.9573a805.js.map": "/static/js/main.9573a805.js.map"
+    "main.dcbd5497.css.map": "/static/css/main.dcbd5497.css.map",
+    "main.8561fa3a.js.map": "/static/js/main.8561fa3a.js.map"
   },
   "entrypoints": [
-    "static/css/main.23c94263.css",
-    "static/js/main.9573a805.js"
+    "static/css/main.dcbd5497.css",
+    "static/js/main.8561fa3a.js"
   ]
 }

@@ -15,9 +15,9 @@ import { UserProvider } from './UserContext';
 //import Sidebar from './Components/Dashboard/Sidebar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Settings from './Components/Dashboard/Settings/Settings';
-
 import DonationForm from './Components/DonationForm/DonationForm';
 import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
+import ChatBot from './Components/ChatBot/chatBot';
 
 const App = () => {
   
@@ -28,7 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <>
-          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <chatBot/>   </>} />
+          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <ChatBot/>   </>} />
         <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
