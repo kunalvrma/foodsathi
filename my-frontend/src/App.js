@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
 import Login from './Components/Login';
+import About from './Components/About/About';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/" element={
           <>
           <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount/> </>} />
+        <Route path="/about" element={<About />} />
         <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
