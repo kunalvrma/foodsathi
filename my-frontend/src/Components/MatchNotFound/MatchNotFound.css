@@ -1,0 +1,76 @@
+.match-not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 90%; /* Makes it responsive */
+  text-align: center;
+  margin: 20px auto; /* Centers on small screens */
+}
+
+.match-not-found-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #ff6b6b;
+}
+
+.match-not-found-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.match-not-found-container p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.retry-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.retry-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+  .match-not-found-container {
+    padding: 20px; /* Reduced padding for smaller screens */
+    max-width: 90%; /* Allows container to adjust to smaller widths */
+  }
+
+  .match-not-found-icon {
+    font-size: 30px; /* Slightly smaller icon */
+    margin-bottom: 10px;
+  }
+
+  .match-not-found-container h2 {
+    font-size: 20px; /* Smaller font size for titles */
+  }
+
+  .match-not-found-container p {
+    font-size: 14px; /* Smaller font size for paragraph text */
+  }
+
+  .retry-button {
+    padding: 8px 16px; /* Reduced button padding */
+    font-size: 14px; /* Smaller font size for button text */
+  }
+}
