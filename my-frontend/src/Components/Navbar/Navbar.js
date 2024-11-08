@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
+import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';  // Import the useAuth hook
+import { useAuth } from '../../context/AuthContext'; // Import the useAuth hook
 import "./navbar.css";
 
 const Navbar = () => {
