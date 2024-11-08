@@ -7,7 +7,7 @@ import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
 import Login from './Components/Login';
-//import About from './Components/About/About';
+import About from './Components/support/About';
 import Navbar from './Components/Navbar/Navbar';
 import Learn from './Components/Learn/Learn';
 import Register from './Components/Register';
@@ -56,6 +56,8 @@ const App = () => {
         <Route path="/track-donation-donor" element={<DonorTracking />} />
         <Route path="/track-donation-receiver" element={<RecieverTracking />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+       {//<Route path="/about" element={<About/>} />
+       } 
 
 
       </Routes>
