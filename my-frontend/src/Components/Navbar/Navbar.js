@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "About Us", link: "./Components/About/About" },
+    { name: "About Us", link: "#" },
     { name: "Learn", link: "#" },
     { name:"Request Donation", link: "/donationRequestForm" },
     { name:"Contact Us", link: "/contactUs" },
