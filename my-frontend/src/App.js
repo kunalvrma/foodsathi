@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
 import Login from './Components/Login';
+//import About from './Components/About/About';
 import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
@@ -21,10 +22,9 @@ import DonorTracking from './Components/DonationTracking/DonorTracking';
 import RecieverTracking from './Components/DonationTracking/RecieverTracking';
 import ContactUs from './Components/support/ContactUs';
 import ProtectedRoute from './Components/ProtectedRoutes';
+import Learn from './Components/Learn/Learn';
 
-//import MatchFoundDialog from './Components/MatchFoundDialog/MatchFoundDialog';
 const App = () => {
-  
   return (
     <UserProvider>
     <Router>
@@ -38,8 +38,10 @@ const App = () => {
           <FoodSathies/>
           <JourneyCount /> 
           <ChatBot/>   </>} />
+         
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
+        <Route path="/learn" element={<Learn /> } />
         <Route path="/restaurant-dashboard" element={
           <ProtectedRoute>
             <Dashboard />

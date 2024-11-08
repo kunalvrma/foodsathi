@@ -1,86 +1,167 @@
 /* General styles */
+:root {
+    --PrimaryColor: #003366;
+    --leafColor: #76B041;
+    --navlinkColor: #F2E9D8;
+    --accentColor: #EAF4E1;
+    --textColor: #212121;
+    --food-sathi-dark: #333333;
+    --food-sathi-green: #4CAF50;
+}
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--navlinkColor); /* Light background for better contrast */
+    line-height: 1.6;
+    color: var(--textColor);
 }
 
+/* Contact Us Section */
 .contact-us {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: white; /* White background for form clarity */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border: 1px solid #e0e0e0; /* Subtle border for better definition */
+    
 }
 
 .contact-us h2 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 10px;
+    color: var(--textColor);
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Adds a sense of emphasis */
 }
 
 .contact-us p {
     color: #666;
-    font-size: 1em;
-    margin-bottom: 20px;
+    font-size: 1.1em;
+    margin-bottom: 25px;
 }
 
 /* Form styles */
 .contact-form .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .contact-form label {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #333;
     font-weight: bold;
+    font-size: 1.1em;
+    text-align: left;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px;
-    font-size: 1em;
+    padding: 14px;
+    font-size: 1.1em;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #4CAF50;
+    border-color: var(--food-sathi-green);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); /* Subtle glow effect on focus */
 }
 
+/* Responsive textarea */
 .contact-form textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 150px; /* More space for longer messages */
 }
 
 /* Submit button */
 .submit-btn {
-    background-color: #4CAF50;
+    background-color: var(--food-sathi-green);
     color: white;
-    padding: 12px 20px;
-    font-size: 1em;
+    padding: 14px 25px;
+    font-size: 1.2em;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    width: 100%; /* Full-width button for mobile view */
 }
 
 .submit-btn:hover {
     background-color: #45a049;
+    transform: translateY(-2px); /* Slight elevation on hover */
+}
+
+.submit-btn:active {
+    transform: translateY(1px); /* Button slightly presses when clicked */
 }
 
 /* Responsive design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    /* Contact form adjustments for tablets and smaller devices */
     .contact-us {
-        padding: 15px;
+        padding: 20px;
+        margin-top: 80px 10px 10px 10px;
+    }
+
+    .contact-us h2 {
+        font-size: 1.8em; /* Slightly smaller title */
+    }
+
+    .contact-us p {
+        font-size: 1em; /* Adjusted paragraph text */
+    }
+
+    .contact-form label {
+        font-size: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1em;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Mobile optimization */
+    body {
+        padding-top: 80px; /* or margin-top */
+    }
+    .contact-us {
+        margin: 80px 10px 10px 10px; /* Increase this value as needed */
+        padding-top: 20px; 
+    }
+
+    .contact-us h2 {
+        font-size: 1.5em; /* Smaller title on mobile */
+        margin-bottom: 10px;
+    }
+
+    .contact-us p {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 15px; /* Reduced margin between form fields */
     }
 
     .contact-form label {
@@ -90,11 +171,11 @@ body {
     .contact-form input,
     .contact-form textarea {
         font-size: 0.9em;
+        padding: 12px;
     }
 
     .submit-btn {
-        width: 100%;
-        padding: 12px;
+        padding: 14px;
         font-size: 1em;
     }
 }

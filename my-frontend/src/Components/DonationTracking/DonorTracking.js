@@ -1,4 +1,3 @@
-// src/Components/DonorTracking.js
 import React, { useState, useEffect } from 'react';
 import { MdReplay, MdCheckCircle, MdLocationOn } from "react-icons/md";
 import './Tracking.css';
@@ -33,26 +32,28 @@ const DonorTracking = () => {
   };
 
   return (
-    <div className="donor-tracking">
-      <h2>Donor Tracking</h2>
-      <div className="timeline">
-        {steps.map((step, index) => (
-          <div key={index} className={`timeline-step ${index <= progress ? 'active' : ''}`}>
-            <div className="timeline-icon">{step.icon}</div>
-            <div className="timeline-label">{step.label}</div>
-          </div>
-        ))}
-        <div className="sathi-symbol" style={{ top: `${progress * 33}%` }}>🌱</div>
-      </div>
-      <div className="actions">
-        {progress === 1 && timeLimitExpired && (
-          <button onClick={retryMatch} className="retry-button">
-            <MdReplay /> Retry Match
+    <div className="donor-tracking-container">
+      <div className="tracking-content">
+        <h2>Donor Tracking</h2>
+        <div className="timeline">
+          {steps.map((step, index) => (
+            <div key={index} className={`timeline-step ${index <= progress ? 'active' : ''}`}>
+              <div className="timeline-icon">{step.icon}</div>
+              <div className="timeline-label">{step.label}</div>
+            </div>
+          ))}
+          <div className="sathi-symbol" style={{ top: `${progress * 33}%` }}>🌱</div>
+        </div>
+        <div className="actions">
+          {progress === 1 && timeLimitExpired && (
+            <button onClick={retryMatch} className="retry-button">
+              <MdReplay /> Retry Match
+            </button>
+          )}
+          <button onClick={advanceProgress} className="advance-button">
+            Next Stage
           </button>
-        )}
-        <button onClick={advanceProgress} className="advance-button">
-          Next Stage
-        </button>
+        </div>
       </div>
     </div>
   );
