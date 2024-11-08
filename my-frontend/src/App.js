@@ -20,6 +20,7 @@ import DonationRequestForm from './Components/DonationRequestForm/DonationReques
 import DonorTracking from './Components/DonationTracking/DonorTracking';
 import RecieverTracking from './Components/DonationTracking/RecieverTracking';
 import ContactUs from './Components/support/ContactUs';
+import ProtectedRoute from './Components/ProtectedRoutes';
 
 //import MatchFoundDialog from './Components/MatchFoundDialog/MatchFoundDialog';
 const App = () => {
@@ -31,10 +32,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={
           <>
-          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <ChatBot/>   </>} />
+          <Home />
+          <VideoSection />
+          <ImageCardSection />
+          <FoodSathies/>
+          <JourneyCount /> 
+          <ChatBot/>   </>} />
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/restaurant-dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute> } />
         <Route path="/settings" element={<Settings />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/donationForm" element={<DonationForm/>} />

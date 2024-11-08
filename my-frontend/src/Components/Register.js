@@ -136,7 +136,7 @@ const Register = () => {
         />
         {error && <p style={styles.error}>{error}</p>}
         {successMessage && <p style={styles.success}>{successMessage}</p>}
-        <button type="submit" style={styles.button}>Register</button>
+        <button type="submit" disabled={isLoading} style={styles.button}>Register</button>
       </form>
       
       <p style={styles.registerText}>
