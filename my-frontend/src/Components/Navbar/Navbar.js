@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { IoIosCloseCircle } from "react-icons/io";
+import React, { useState } from "react";
 import { MdAccountCircle, MdHandshake } from "react-icons/md";
+import { IoIosCloseCircle } from "react-icons/io";
 import { TbGridDots } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';  // Import the useAuth hook
@@ -16,9 +16,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "About Us", link: "#" },
-    { name: "Learn", link: "#" },
-    { name:"Request Donation", link: "/donationRequestForm" },
-    { name:"Contact Us", link: "/contactUs" },
+    { name: "Learn", link: "/learn" },
+    { name: "Request Donation", link: "/donationRequestForm" },
+    { name: "Contact Us", link: "/contactUs" },
   ];
 
   // Function to handle login button click

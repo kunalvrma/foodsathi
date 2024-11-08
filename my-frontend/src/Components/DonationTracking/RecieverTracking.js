@@ -1,9 +1,8 @@
-// src/Components/ReceiverTracking.js
 import React, { useState } from 'react';
 import { MdPhone, MdCheckCircle, MdLocationOn } from "react-icons/md";
-import './Tracking.css';
+import './RTracking.css';
 
-const RecieverTracking = () => {
+const ReceiverTracking = () => {
   const [progress, setProgress] = useState(0);
 
   const steps = [
@@ -17,33 +16,35 @@ const RecieverTracking = () => {
   };
 
   return (
-    <div className="receiver-tracking">
-      <h2>Receiver Tracking</h2>
-      <div className="timeline">
-        {steps.map((step, index) => (
-          <div key={index} className={`timeline-step ${index <= progress ? 'active' : ''}`}>
-            <div className="timeline-icon">{step.icon}</div>
-            <div className="timeline-label">{step.label}</div>
-          </div>
-        ))}
-        <div className="sathi-symbol" style={{ top: `${progress * 33}%` }}>🌱</div>
-      </div>
-      <div className="actions">
-        {progress === 1 && (
-          <p>Destination: XYZ Community Center</p>
-        )}
-        {progress === 2 ? (
-          <button className="call-button">
-            <MdPhone /> Call Donor
-          </button>
-        ) : (
-          <button onClick={advanceProgress} className="advance-button">
-            Update Status
-          </button>
-        )}
+    <div className="receiver-tracking-container">
+      <div className="tracking-content">
+        <h2>Receiver Tracking</h2>
+        <div className="timeline">
+          {steps.map((step, index) => (
+            <div key={index} className={`timeline-step ${index <= progress ? 'active' : ''}`}>
+              <div className="timeline-icon">{step.icon}</div>
+              <div className="timeline-label">{step.label}</div>
+            </div>
+          ))}
+          <div className="sathi-symbol" style={{ top: `${progress * 33}%` }}>🌱</div>
+        </div>
+        <div className="actions">
+          {progress === 1 && (
+            <p>Destination: XYZ Community Center</p>
+          )}
+          {progress === 2 ? (
+            <button className="call-button">
+              <MdPhone /> Call Donor
+            </button>
+          ) : (
+            <button onClick={advanceProgress} className="advance-button">
+              Update Status
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default RecieverTracking;
+export default ReceiverTracking;
