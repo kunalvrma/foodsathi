@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+//src/Components/Login.js
+import React, { useState, localStorage } from 'react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -27,6 +28,7 @@ const LoginPage = () => {
       if (response.ok) {
         setSuccessMessage('Login successful!');
         alert(`Welcome, ${data.user.username}`);
+        localStorage.setItem('token',data.token);
       } else {
         setError(data.error || 'Failed to log in. Please try again.');
       }

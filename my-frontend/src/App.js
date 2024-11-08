@@ -3,7 +3,6 @@ import './app.css';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Profile from './Components/Dashboard/Profile';
 import FoodSathies from './Components/FoodSathies/FoodSathies';
-import JoinForm from './Components/Form/JoinForm';
 import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
@@ -32,7 +31,6 @@ const App = () => {
         <Route path="/" element={
           <>
           <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <ChatBot/>   </>} />
-        <Route path="/form" element={<JoinForm />} /> 
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
