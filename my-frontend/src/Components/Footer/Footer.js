@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Contact Us</h3>
           <p>Email: support@foodsathi.org</p>
-          <p>Phone: +1 (234) 567-8901</p>
-          <p>Address: 1234 FoodSathi St., Sustainability City</p>
+          
+
         </div>
         
         {/* Social Media Links */}
