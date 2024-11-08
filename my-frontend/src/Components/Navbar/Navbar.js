@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { MdHandshake, MdAccountCircle } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
+import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
 import "./navbar.css";
@@ -17,6 +17,8 @@ const Navbar = () => {
     { name: "Join", link: "/form" },
     { name: "Learn", link: "#" },
     { name:"Request Donation", link: "/donationRequestForm" },
+    { name:"Contact Us", link: "/contactUs" },
+    
   ];
 
   const handleLoginClick = () => {
