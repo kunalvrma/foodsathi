@@ -1,20 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Register.css';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState(''); 
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (error || successMessage) {
+      const timer = setTimeout(() => {
+        setError('');
+        setSuccessMessage('');
+      }, 3000); // Hide message after 5 seconds
+  
+      return () => clearTimeout(timer); // Clear timeout if component unmounts or messages change
+    }
+  },[error, successMessage]);
+
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return regex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6; // Password should be at least 6 characters long
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (!name || !email || !password) {
       setError('Please fill in all fields');
       return;
     }
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+
+    setError('');
+    setIsLoading(true);
 
     try {
       // Send registration data to backend API
@@ -23,7 +61,7 @@ const Register = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, password, role, phoneNumber })
       });
 
       const data = await response.json();
@@ -34,14 +72,21 @@ const Register = () => {
         setName('');
         setEmail('');
         setPassword('');
+        setRole('ngo');
+        setPhoneNumber('');
       } else {
-        setError(data.error || 'Failed to register. Please try again.');
+        console.log(data.message || data.error);
+        setError(data.message || 'Failed to register. Please try again.');
       }
     } catch (err) {
       setError('Failed to connect to the server. Please try again later.');
     }
+    finally {
+      setIsLoading(false);
+    }
   };
 
+ 
   return (
     <div style={styles.container}>
       <h2>Register</h2>
@@ -67,6 +112,23 @@ const Register = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          style={styles.input}
+          required
+        />
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          style={styles.input}
+          required
+        >
+          <option value="ngo">NGO</option>
+          <option value="restaurant">Restaurant</option>
+        </select>
+        <input
+          type="phoneNumber"
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
           style={styles.input}
           required
         />
