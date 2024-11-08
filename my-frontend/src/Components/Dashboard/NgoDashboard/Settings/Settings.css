@@ -1,0 +1,97 @@
+/* Settings section styling */
+.settings-section {
+    width: 100%;
+    max-width: 90%; /* Maximum width for larger screens */
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    margin-top: 90px; /* Space from the top for fixed header */
+  }
+  
+  .settings-section h2 {
+    text-align: center;
+    color: #000;
+    margin-bottom: 1.5rem; /* Slightly larger margin for better spacing */
+    font-size: 2.5rem; /* Increase font size for visibility */
+  }
+  .default-image-button {
+    margin-top: 10px;
+    background-color: #f0f0f0; /* Light grey background */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .default-image-button:hover {
+    background-color: #e0e0e0; /* Darker grey on hover */
+  }
+  .form-row {
+    display: flex; /* Create a flex container for each row */
+    justify-content: space-between; /* Space between items */
+    margin-bottom: 1.5rem; /* Space between rows */
+  }
+  
+  .form-group {
+    flex: 1; /* Allow flex growth */
+    margin-right: 1rem; /* Right margin for spacing */
+  }
+  
+  .form-group:last-child {
+    margin-right: 0; /* No margin for the last item */
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #252525;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s; /* Transition for smoother interaction */
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+  }
+  
+  .image-preview {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-top: 0.5rem;
+    object-fit: cover;
+    border-radius: 50%; /* Keep profile image round */
+  }
+  
+  .save-button {
+    display: block;
+    width: 100%; /* Full width for button */
+    padding: 0.8rem;
+    background-color: #4CAF50; /* Primary color for the button */
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transition for smooth hover effect */
+  }
+  
+  .save-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  .save-button:active {
+    transform: translateY(0); /* Reset on click */
+  }
+  

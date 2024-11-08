@@ -1,0 +1,12 @@
+import React from 'react';
+
+const AboutNgo = () => {
+  return (
+    <div className="about-ngo">
+      <h2>About Our NGO</h2>
+      <p>Welcome to our NGO. We work towards alleviating food scarcity and helping the needy by connecting restaurants and volunteers with those in need.</p>
+    </div>
+  );
+};
+
+export default AboutNgo;
