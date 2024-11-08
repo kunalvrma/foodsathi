@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+//src/Components/Login.js
+import React, { useState} from 'react';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -7,7 +10,8 @@ const LoginPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [isHovered, setIsHovered] = useState(false); // State for hover effect
   const [isActive, setIsActive] = useState(false); // State for active effect
-
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -26,7 +30,16 @@ const LoginPage = () => {
 
       if (response.ok) {
         setSuccessMessage('Login successful!');
-        alert(`Welcome, ${data.user.username}`);
+        //alert(`Welcome, ${data.user.username}`);
+
+
+        localStorage.setItem('token',data.token);
+        localStorage.setItem('role', data.user.role);
+        const userRole = data.user.role;
+
+        login(userRole); // Set authentication and role in context
+        navigate(userRole === 'ngo' ? '/ngo-dashboard' : '/restaurant-dashboard');
+
       } else {
         setError(data.error || 'Failed to log in. Please try again.');
       }
