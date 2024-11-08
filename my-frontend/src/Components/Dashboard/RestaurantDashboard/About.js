@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUser } from '../../UserContext'; // Import the useUser hook
+import { useUser } from '../../../UserContext'; // Import the useUser hook
 
 const About = () => {
   const { user } = useUser(); // Get user data from context

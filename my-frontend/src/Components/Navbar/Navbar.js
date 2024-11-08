@@ -16,9 +16,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "About Us", link: "#" },
-    { name: "Learn", link: "#" },
-    { name:"Request Donation", link: "/donationRequestForm" },
-    { name:"Contact Us", link: "/contactUs" },
+    { name: "Learn", link: "/learn" },
+    { name: "Request Donation", link: "/donationRequestForm" },
+    { name: "Contact Us", link: "/contactUs" },
   ];
 
   // Function to handle login button click
