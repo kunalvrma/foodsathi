@@ -1,0 +1,104 @@
+/* Main container */
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically by default */
+  gap: 40px; /* Add spacing between sections */
+}
+
+/* Individual content sections */
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between image and text */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.about-content.reverse-layout {
+  flex-direction: row-reverse; /* Flip image and text for alternating layout */
+}
+
+/* Image container */
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensure proper image fitting */
+}
+
+/* Text container */
+.about-text {
+  flex: 1; /* Allow text to grow and fill available space */
+  margin: 0; /* Reset margins */
+}
+
+.about-text h2,
+.about-text h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px; /* Add spacing below headings */
+}
+
+.about-text p,
+.about-text ul {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0; /* Spacing between paragraphs */
+  text-align: justify; /* Justify text for better readability */
+}
+
+.about-text ul {
+  list-style-type: disc; /* Add bullet points */
+  padding-left: 20px;
+}
+
+.about-text ul li {
+  margin: 10px 0;
+}
+
+.about-text strong {
+  color: #4CAF50; /* Highlighted text */
+}
+
+/* Responsive design - For screens less than 768px (tablets and mobiles) */
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column; /* Stack items vertically */
+      text-align: center; /* Center-align content */
+  }
+
+  .about-text {
+      margin-left: 0; /* Reset left margin */
+      margin-top: 20px; /* Add spacing above text */
+  }
+
+  .about-text h2,
+  .about-text h3 {
+      font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .about-text p,
+  .about-text ul {
+      font-size: 0.9rem; /* Adjust paragraph size */
+  }
+}
+
+/* Responsive design - For screens less than 480px (mobile phones) */
+@media (max-width: 480px) {
+  .about-text h2,
+  .about-text h3 {
+      font-size: 1.2rem; /* Reduce heading size */
+  }
+
+  .about-text p,
+  .about-text ul {
+      font-size: 0.8rem; /* Reduce text size further */
+  }
+
+  .about-image img {
+      max-width: 100%; /* Ensure the image fits within the screen */
+      height: auto;
+  }
+}

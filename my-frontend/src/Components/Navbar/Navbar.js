@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';  // Import the useAuth hook
+import { useAuth } from '../../context/AuthContext'; // Import the useAuth hook
 import "./navbar.css";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "About Us", link: "#" },
+    { name: "About Us", link: "./Components/About/About" },
     { name: "Learn", link: "#" },
     { name:"Request Donation", link: "/donationRequestForm" },
     { name:"Contact Us", link: "/contactUs" },

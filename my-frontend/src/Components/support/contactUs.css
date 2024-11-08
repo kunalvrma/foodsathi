@@ -1,13 +1,17 @@
 /* General styles */
 * {
     box-sizing: border-box;
-}
-
+    }
 body {
+    margin-top: 90px;
     font-family: Arial, sans-serif;
+   
+    
+    
 }
 
 .contact-us {
+    
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
