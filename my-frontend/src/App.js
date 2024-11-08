@@ -13,40 +13,48 @@ import Navbar from './Components/Navbar/Navbar';
 import Register from './Components/Register';
 import VideoSection from './Components/VideoSection/VideoSection';
 import { UserProvider } from './UserContext';
-//import Sidebar from './Components/Dashboard/Sidebar';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Settings from './Components/Dashboard/Settings/Settings';
 import DonationForm from './Components/DonationForm/DonationForm';
 import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
 import DonorTracking from './Components/DonationTracking/DonorTracking';
 import RecieverTracking from './Components/DonationTracking/RecieverTracking';
-import ChatBot from './Components/ChatBot/chatBot';
+import ChatBot from './Components/chatbot/chatBot';
+//import Contact from './Components/Contact/Contact';
 
-//import MatchFoundDialog from './Components/MatchFoundDialog/MatchFoundDialog';
 const App = () => {
-  
   return (
     <UserProvider>
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <>
-          <Home /><VideoSection /><ImageCardSection /><FoodSathies/><JourneyCount /> <ChatBot/>   </>} />
-        <Route path="/form" element={<JoinForm />} /> 
-        <Route path="/login" element={<Login />} /> 
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/donationForm" element={<DonationForm/>} />
-        <Route path="/donationRequestForm" element={<DonationRequestForm/>} />
-        <Route path="/track-donation-donor" element={<DonorTracking />} />
-        <Route path="/track-donation-receiver" element={<RecieverTracking />} />
-
-      </Routes>
-     
-    </Router>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <VideoSection />
+                <ImageCardSection />
+                <FoodSathies />
+                <JourneyCount />
+                <ChatBot />
+            
+              </>
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/form" element={<JoinForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/donationForm" element={<DonationForm />} />
+          <Route path="/donationRequestForm" element={<DonationRequestForm />} />
+          <Route path="/track-donation-donor" element={<DonorTracking />} />
+          <Route path="/track-donation-receiver" element={<RecieverTracking />} />
+        </Routes>
+      </Router>
     </UserProvider>
   );
 };
