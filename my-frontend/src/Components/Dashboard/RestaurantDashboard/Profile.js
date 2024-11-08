@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUser } from '../../UserContext'; // Import the useUser hook
+import { useUser } from '../../../UserContext'; // Import the useUser hook
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { CiPhone } from "react-icons/ci";
 import { IoMdLink } from "react-icons/io";

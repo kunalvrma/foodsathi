@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../../../UserContext'; // Import the useUser hook
+import { useUser } from '../../../../UserContext'; // Import the useUser hook
 import './Settings.css';
 import defaultImage from './41B3Q0XgFVL._AC_UF1000,1000_QL80_.jpg';
 
@@ -45,7 +45,7 @@ const Settings = () => {
     });
 
     alert("Settings saved successfully!");
-    navigate('/dashboard');
+    navigate('/restaurant-dashboard');
   };
 
   return (

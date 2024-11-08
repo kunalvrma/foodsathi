@@ -1,10 +1,10 @@
-// src/Components/Dashboard.js
+// src/Components/RestaurantDashboard.js
 import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import Profile from './Profile';
 import About from './About';
 import Contributions from './Contributions';
-import { fetchProtectedData } from '../../api';  // Import the fetch function
+import { fetchProtectedData } from '../../../api';  // Import the fetch function
 import './dashboard.css';
 
 const Dashboard = () => {
