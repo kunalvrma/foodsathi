@@ -2,12 +2,14 @@
 
 /* Main container */
 .about-container {
+  
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
   
   .about-content {
+    margin-top:60px;
     display: flex;
     align-items: center;
     margin-bottom: 40px;
