@@ -23,6 +23,7 @@ import RecieverTracking from './Components/DonationTracking/RecieverTracking';
 import ContactUs from './Components/support/ContactUs';
 import ProtectedRoute from './Components/ProtectedRoutes';
 import PostDonation from './Components/Dashboard/RestaurantDashboard/PostDonation';
+import Footer from './Components/Footer/Footer';
 
 const App = () => {
   return (
@@ -37,7 +38,8 @@ const App = () => {
           <ImageCardSection />
           <FoodSathies/>
           <JourneyCount /> 
-          <ChatBot/>   </>} />
+          <ChatBot/> 
+          <Footer/>  </>} />
          
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
