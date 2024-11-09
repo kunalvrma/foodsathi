@@ -44,7 +44,8 @@ const App = () => {
           <ImageCardSection />
           <FoodSathies/>
           <JourneyCount /> 
-          <ChatBot/>   </>} />
+          <ChatBot/> 
+          <Footer/>  </>} />
          
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
