@@ -10,6 +10,7 @@
 
 /* Individual content sections */
 .about-content {
+  margin-top:60px;
   display: flex;
   align-items: center;
   gap: 20px; /* Spacing between image and text */

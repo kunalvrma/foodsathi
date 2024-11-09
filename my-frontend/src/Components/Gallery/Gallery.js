@@ -1,13 +1,14 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import React from 'react';
 import './Gallery.css';
 
-const images = [
-  '/Gallery/media/img1.jpeg',
-  '/Gallery/media/img2.png',
-  '/Gallery/media/img3.jpg',
-  '/Gallery/media/img5.jpg',  // Add more images as needed
-];
+
+import img1 from './media/img1.jpeg';
+import img2 from './media/img2.png';
+import img3 from './media/img3.jpg';
+import img5 from './media/img5.jpg';
+
+const images = [img1, img2, img3, img5]
 
 function Gallery() {
   return (
