@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Settings.css';
 
-const Settings = () => {
+const SettingsNgo = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [profileImage, setProfileImage] = useState('');
@@ -12,22 +12,22 @@ const Settings = () => {
   };
 
   return (
-    <div className="settings">
+    <div className="settings-section">
       <h2>Account Settings</h2>
-      <form onSubmit={handleSave}>
+      <form className="form-group" onSubmit={handleSave}>
         <label>Email</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         
         <label>Phone</label>
         <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
 
-        <label>Profile Image</label>
+        <label className="image-preview">Profile Image</label>
         <input type="file" onChange={(e) => setProfileImage(e.target.files[0])} />
 
-        <button type="submit">Save</button>
+        <button className="save-button"type="submit">Save</button>
       </form>
     </div>
   );
 };
 
-export default Settings;
+export default SettingsNgo;

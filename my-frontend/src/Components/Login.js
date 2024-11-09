@@ -12,6 +12,7 @@ const LoginPage = () => {
   const [isActive, setIsActive] = useState(false); // State for active effect
   const { login } = useAuth();
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -27,7 +28,7 @@ const LoginPage = () => {
       });
 
       const data = await response.json();
-
+      //console.log(data);
       if (response.ok) {
         setSuccessMessage('Login successful!');
         //alert(`Welcome, ${data.user.username}`);
@@ -35,10 +36,16 @@ const LoginPage = () => {
 
         localStorage.setItem('token',data.token);
         localStorage.setItem('role', data.user.role);
-        const userRole = data.user.role;
+        login(data.user.role);
 
-        login(userRole); // Set authentication and role in context
-        navigate(userRole === 'ngo' ? '/ngo-dashboard' : '/restaurant-dashboard');
+        if (data.user.role === 'ngo') {
+          navigate('/ngo-dashboard');
+        } else if (data.user.role === 'restaurant') {
+          navigate('/restaurant-dashboard');
+        } else {
+          navigate('/'); // Fallback redirect
+        }
+        //console.log(data.user.role);
 
       } else {
         setError(data.error || 'Failed to log in. Please try again.');

@@ -1,15 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <NavLink to="/ngo/about">About Us</NavLink>
-      <NavLink to="/ngo/donations">Donation History</NavLink>
-      <NavLink to="/ngo/post-request">Post a Request</NavLink>
-      <NavLink to="/ngo/settings">Settings</NavLink>
-    </div>
+    <nav style={{ padding: '20px' }}>
+<h2>FoodSathi Dashboard</h2>
+<ul style={{ listStyleType: 'none', padding: 0 }}>
+  <li> <Link to="/aboutNgo">About Us</Link></li>
+  <li><Link to="/donations">Donation History</Link></li>
+  <li><Link to="/post-request">Post a Request</Link></li>
+  <li><Link to="/settingsNgo">Settings</Link></li>
+</ul>
+</nav>
   );
 };
 
 export default Sidebar;
+
+
+

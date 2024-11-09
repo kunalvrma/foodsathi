@@ -153,7 +153,9 @@
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor */
   }
-  
+  .donation-history{
+    margin-top: 90px;
+  }
   .profile button:hover {
     background-color: darken(var(--PrimaryColor), 10%); /* Darken on hover */
   }
@@ -225,6 +227,7 @@
     padding: 15px; /* Adequate padding for space around content */
     border-radius: 5px; /* Slightly rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 91px;
     margin-bottom: 20px; /* Space below the section */
   }
   

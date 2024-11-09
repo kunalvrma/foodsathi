@@ -64,7 +64,7 @@ const loginUser = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         
         // Return token as response and greets user with username
-        res.json({ token, user:{username:user.username}});
+        res.json({ token, user:{username:user.username,role:user.role,email:user.email}});
     } catch (err) {
         console.error(err); // Log error for debugging
         res.status(500).json({ message: 'Server error, please try again later' });

@@ -7,7 +7,7 @@
     background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
     border-radius: 10px; /* Rounded corners for a softer look */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
-    margin-top: 90px; /* Space from the top for fixed header */
+    margin-top: 93px; /* Space from the top for fixed header */
   }
   
   .settings-section h2 {

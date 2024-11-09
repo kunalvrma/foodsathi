@@ -7,7 +7,7 @@ import Contributions from './Contributions';
 import { fetchProtectedData } from '../../../api';  // Import the fetch function
 import './dashboard.css';
 
-const Dashboard = () => {
+const RestaurantDashboard = () => {
   const [contributions, setContributions] = useState([]);
   const [error, setError] = useState(null);
 
@@ -39,4 +39,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default RestaurantDashboard;
