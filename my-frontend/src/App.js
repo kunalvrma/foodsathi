@@ -28,6 +28,7 @@ import AboutNgo from './Components/Dashboard/NgoDashboard/AboutNgo';
 import DonationHistory from './Components/Dashboard/NgoDashboard/DonationHistory';
 import PostRequest from './Components/Dashboard/NgoDashboard/PostRequest';
 import SettingsNgo from './Components/Dashboard/NgoDashboard/Settings/Settings';
+import Footer from './Components/Footer/Footer';
 
 
 
