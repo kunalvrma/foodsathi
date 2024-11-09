@@ -39,9 +39,11 @@
     z-index: 2; /* Ensure overlay is above the video but below the navbar */
 }
 
-.overlay h2 {
+.video-container .overlay h2 {
     font-size: 3vw; /* Smaller responsive font size for the title */
     margin: 0.5rem 0;
+    color:white ;
+    font-size: 4vw;
 }
 
 .overlay p {
