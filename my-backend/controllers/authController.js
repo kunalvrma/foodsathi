@@ -1,44 +1,37 @@
-// controllers/authController.js
 const User = require('../models/User'); // Ensure correct import of User model
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Register User
 const registerUser = async (req, res) => {
-    const { name, email, password,  role, phoneNumber } = req.body;
+    const { name, email, password, role, phoneNumber } = req.body;
 
     try {
-        // Input validation (Optional but recommended)
         if (!name || !email || !password || !phoneNumber || !role) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
-        // Check if email already exists
         const existingEmail = await User.findOne({ email });
         const existingPhoneNumber = await User.findOne({ phoneNumber });
-        if (existingEmail|| existingPhoneNumber) {
+        if (existingEmail || existingPhoneNumber) {
             return res.status(400).json({ message: 'Email or phone number already in use' });
         }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create new user
         const newUser = new User({
-            username: name, // Assuming 'name' is being saved as 'username' in the model
+            username: name, 
             email,
             password: hashedPassword,
             phoneNumber,
             role,
         });
 
-        // Save new user to the database
         await newUser.save();
 
-        // Return success message
         res.status(201).json({ message: 'User registered successfully' });
     } catch (err) {
-        console.error(err); // Log error for debugging
+        console.error(err);
         res.status(500).json({ message: 'Server error, please try again later' });
     }
 };
@@ -48,27 +41,60 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        // Compare password with hashed password stored in database
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        // Generate JWT token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         
-        // Return token as response and greets user with username
-        res.json({ token, user:{username:user.username,role:user.role,email:user.email}});
+        res.json({ token, user: { username: user.username, role: user.role, email: user.email } });
     } catch (err) {
-        console.error(err); // Log error for debugging
+        console.error(err);
         res.status(500).json({ message: 'Server error, please try again later' });
     }
 };
 
-module.exports = { register: registerUser, login: loginUser }; // Correct export
+// Get Profile
+const getProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.userId); // Assuming req.user contains userId
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json({ username: user.username, email: user.email, role: user.role });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error, please try again later' });
+    }
+};
+
+// Update Profile
+const updateProfile = async (req, res) => {
+    const { name, email, phoneNumber, role } = req.body;
+
+    try {
+        const user = await User.findById(req.user.userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        if (name) user.username = name;
+        if (email) user.email = email;
+        if (phoneNumber) user.phoneNumber = phoneNumber;
+        if (role) user.role = role;
+
+        await user.save();
+        res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error, please try again later' });
+    }
+};
+
+module.exports = { register: registerUser, login: loginUser, getProfile, updateProfile };
