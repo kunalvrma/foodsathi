@@ -1,34 +1,34 @@
 import React from 'react';
-import './app.css';
-import RestaurantDashboard from './Components/Dashboard/RestaurantDashboard/RestaurantDashboard';
-import Profile from './Components/Dashboard/RestaurantDashboard/Profile';
-import FoodSathies from './Components/FoodSathies/FoodSathies';
-import Home from './Components/Home/Home';
-import ImageCardSection from './Components/ImageCardSection/ImageCard';
-import JourneyCount from './Components/JourneyCount/JourneyCount';
-import Login from './Components/Login';
-//import About from './Components/support/About';
-import Navbar from './Components/Navbar/Navbar';
-import Learn from './Components/Learn/Learn';
-import Register from './Components/Register';
-import VideoSection from './Components/VideoSection/VideoSection';
-import { UserProvider } from './UserContext';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './app.css';
 import ChatBot from './Components/ChatBot/chatBot';
+import AboutNgo from './Components/Dashboard/NgoDashboard/AboutNgo';
+import DonationHistory from './Components/Dashboard/NgoDashboard/DonationHistory';
+import NgoDashboard from './Components/Dashboard/NgoDashboard/NgoDashboard';
+import PostRequest from './Components/Dashboard/NgoDashboard/PostRequest';
+import SettingsNgo from './Components/Dashboard/NgoDashboard/Settings/Settings';
+import PostDonation from './Components/Dashboard/RestaurantDashboard/PostDonation';
+import Profile from './Components/Dashboard/RestaurantDashboard/Profile';
+import RestaurantDashboard from './Components/Dashboard/RestaurantDashboard/RestaurantDashboard';
 import Settings from './Components/Dashboard/RestaurantDashboard/Settings/Settings';
 import DonationForm from './Components/DonationForm/DonationForm';
 import DonationRequestForm from './Components/DonationRequestForm/DonationRequestForm';
 import DonorTracking from './Components/DonationTracking/DonorTracking';
 import RecieverTracking from './Components/DonationTracking/RecieverTracking';
-import ContactUs from './Components/support/ContactUs';
-import ProtectedRoute from './Components/ProtectedRoutes';
-import PostDonation from './Components/Dashboard/RestaurantDashboard/PostDonation';
-import NgoDashboard from './Components/Dashboard/NgoDashboard/NgoDashboard';
-import AboutNgo from './Components/Dashboard/NgoDashboard/AboutNgo';
-import DonationHistory from './Components/Dashboard/NgoDashboard/DonationHistory';
-import PostRequest from './Components/Dashboard/NgoDashboard/PostRequest';
-import SettingsNgo from './Components/Dashboard/NgoDashboard/Settings/Settings';
+import FoodSathies from './Components/FoodSathies/FoodSathies';
 import Footer from './Components/Footer/Footer';
+import Home from './Components/Home/Home';
+import ImageCardSection from './Components/ImageCardSection/ImageCard';
+import JourneyCount from './Components/JourneyCount/JourneyCount';
+import Learn from './Components/Learn/Learn';
+import Login from './Components/Login';
+import Navbar from './Components/Navbar/Navbar';
+import ProtectedRoute from './Components/ProtectedRoutes';
+import Register from './Components/Register';
+import About from './Components/support/About';
+import ContactUs from './Components/support/ContactUs';
+import VideoSection from './Components/VideoSection/VideoSection';
+import { UserProvider } from './UserContext';
 
 
 
@@ -51,6 +51,7 @@ const App = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Learn /> } />
+        <Route path="/About" element={<About />} />
         <Route path="/restaurant-dashboard" element={
           <ProtectedRoute allowedRole="restaurant">
             <RestaurantDashboard />
