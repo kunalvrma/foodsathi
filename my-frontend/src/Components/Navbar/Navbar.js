@@ -15,9 +15,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "About Us", link: "/" },
+    { name: "About Us", link: "/AboutUs" },
     { name: "Learn", link: "/learn" },
-    { name: "Request Donation", link: "/donationRequestForm" },
+    { name: "Request Donation", link: "/Request Donation" },
     { name: "Contact Us", link: "/contactUs" },
   ];
 
@@ -73,7 +73,7 @@ const Navbar = () => {
             )}
 
             <li className="navItem">
-              <Link to="/donationForm" className="btn" aria-label="Donate Button">Donate</Link>
+              <Link to="/Donation Form" className="btn" aria-label="Donate Button">Donate</Link>
             </li>
 
             <div onClick={toggleNav} className="closeNavBar" aria-label="Close Navigation">
