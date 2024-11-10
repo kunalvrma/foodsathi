@@ -31,7 +31,6 @@ import VideoSection from './Components/VideoSection/VideoSection';
 import { UserProvider } from './UserContext';
 
 
-
 const App = () => {
   return (
     <UserProvider>
@@ -74,7 +73,6 @@ const App = () => {
         <Route path="/donations" element={<DonationHistory/>}/>
         <Route path="/post-request" element={<PostRequest />} />
         <Route path="/settingsNgo" element={<SettingsNgo />} />
-
 
 
         

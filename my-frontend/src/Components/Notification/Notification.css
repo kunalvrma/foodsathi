@@ -1,0 +1,86 @@
+/* Container for notification icon */
+.notification-container {
+    position: relative;
+  }
+  
+  /* Notification Icon Style */
+  .notification-icon {
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+    color: #F2E9D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Blue dot indicating new notifications */
+  .notification-dot {
+    position: absolute;
+    top: -5px;   /* Adjusted for better visibility */
+    right: -5px; /* Adjusted for better visibility */
+    width: 12px; /* Slightly larger for better visibility */
+    height: 12px; /* Slightly larger for better visibility */
+    border-radius: 50%;
+    background-color: rgb(10, 126, 10); /* Green color for the dot */
+  }
+  
+  /* Dropdown notification box */
+  .notification-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+    opacity: 0; /* Initial hidden state */
+    visibility: hidden; /* Ensure dropdown is not visible initially */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+  
+  /* Show dropdown when open */
+  .notification-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Style for notification items in the dropdown */
+  .notification-dropdown h4 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .notification-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notification-dropdown li {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word; /* Ensure long words break properly */
+  }
+  
+  /* Style for notification icon (for example, a bell icon) */
+  .notification-icon img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Add a smooth transition to dropdown visibility */
+  .notification-dropdown {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+  

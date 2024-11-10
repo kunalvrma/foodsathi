@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Notification from '../Notification/Notification'; // Adjust the path correctly
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
@@ -74,6 +75,9 @@ const Navbar = () => {
 
             <li className="navItem">
               <Link to="/donationForm" className="btn" aria-label="Donate Button">Donate</Link>
+            </li>
+            <li className="navItem">
+            <Notification />
             </li>
 
             <div onClick={toggleNav} className="closeNavBar" aria-label="Close Navigation">
