@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import './Gallery.css';
 
+const images = [
+  'https://sjc1.vultrobjects.com/kunalverma336915/gallery/img1.jpeg',
+  'https://sjc1.vultrobjects.com/kunalverma336915/gallery/img2.png',
+  'https://sjc1.vultrobjects.com/kunalverma336915/gallery/img3.jpg',
+  'https://sjc1.vultrobjects.com/kunalverma336915/gallery/img5.jpg'
+];
 
-import img1 from './media/img1.jpeg';
-import img2 from './media/img2.png';
-import img3 from './media/img3.jpg';
-import img5 from './media/img5.jpg';
 
-const images = [img1, img2, img3, img5]
 
 function Gallery() {
   return (
