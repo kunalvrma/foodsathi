@@ -2,7 +2,8 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import MainContent from './MainContent';
 import './dashboard.css';
-import PostRequest from './PostRequest';
+//import PostRequest from './PostRequest';
+import Profile from './Profile';
 import AboutNgo from './AboutNgo';
 //import { fetchProtectedData } from '../../../api';
 
@@ -13,8 +14,8 @@ const NgoDashboard = () => {
         <Sidebar />
       </div>
       <div className="main-content">
-        <MainContent/>
-        <PostRequest />
+        <Profile />
+        
         <AboutNgo/>
         
       </div>
