@@ -9,22 +9,14 @@ const FoodSathies = () => {
             title: 'NGOs',
             description: 'Helping to distribute surplus food to those in need.',
             link: '/ngo',
-            image: require('./media/ngo1.jpg')
+            image:'https://sjc1.vultrobjects.com/kunalverma336915/foodsathi/ngo1.jpg'
         },
         {
             id: 2,
             title: 'Hotels',
             description: 'Partnering to prevent food waste from events.',
             link: '/Details/hotels',
-            image: require('./media/ngo0.jpg')
-        },
-        {
-            id: 3,
-            title: 'Volunteers',
-            description: 'Joining hands to assist in sustainable food distribution.',
-            link: '/Details/volunteers',
-            image: require('./media/ngo5.jpg')
-        }
+            image:'https://sjc1.vultrobjects.com/kunalverma336915/foodsathi/ngo0.jpg'        }
     ];
 
     const navigate = useNavigate();

@@ -1,8 +1,10 @@
 import React from 'react';
 import './imageCard.css';
-import image1 from './media/fooddoantion1.jpeg';
-import image2 from './media/fooddonation2.jpg';
-import image3 from './media/fooddonatio3.jpg';
+
+
+const image1 = 'https://sjc1.vultrobjects.com/kunalverma336915/image%20card%20section/fooddoantion1.jpeg';
+const image2 = 'https://sjc1.vultrobjects.com/kunalverma336915/image%20card%20section/fooddonation2.jpg';
+const image3 = 'https://sjc1.vultrobjects.com/kunalverma336915/image%20card%20section/fooddonatio3.jpg';
 
 const ImageCardSection = () => {
   return (
