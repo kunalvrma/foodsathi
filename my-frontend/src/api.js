@@ -5,7 +5,7 @@ const API_BASE_URL = 'http://localhost:5000/api';  // Base URL for your backend
 
 export const sendMessageToBot = async (message) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/chatbot/chat`, { message });
+    const response = await axios.post(`${API_BASE_URL}/chatbot/message`, { message });
     return response.data;
   } catch (error) {
     console.error('Error communicating with the chatbot:', error);
