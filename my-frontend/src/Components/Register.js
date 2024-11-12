@@ -140,7 +140,7 @@ const Register = () => {
       </form>
       
       <p style={styles.registerText}>
-        Already have an account? <a href="/" style={styles.link}>Login here</a>
+        Already have an account? <a href="/login" style={styles.link}>Login here</a>
       </p>
     </div>
   );
