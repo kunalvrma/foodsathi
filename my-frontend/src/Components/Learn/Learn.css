@@ -1,76 +1,167 @@
-/* src/components/Learn.css */
-
+/* General Container Styles */
 .learn-container {
-    max-width: 90%;
-    margin: 120px auto;
-    padding: 20px;
+    max-width: 85%;
+    margin: 100px auto;
+    padding: 30px;
     background-color: #f9f9f9;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
-/* Heading styles */
+/* Heading Styles */
 .learn-heading {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: #003366;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* Section styles */
+/* Section Styles */
 .learn-section {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .learn-section h2 {
+    font-size: 2rem;
     color: #76B041;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid #76B041;
+    padding-bottom: 5px;
 }
 
 .learn-section p,
 .learn-section ul,
 .learn-section ol {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #212121;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
 }
 
 .learn-section ul,
 .learn-section ol {
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .learn-section ul li,
 .learn-section ol li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    position: relative;
 }
 
-/* Call to action */
+/* List Items Styles */
+.learn-section ul li:before,
+.learn-section ol li:before {
+    content: "•";
+    color: #76B041;
+    position: absolute;
+    left: -20px;
+    font-size: 1.5rem;
+}
+
+/* FAQ Section Styling */
+.faq-item {
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.faq-question {
+    font-size: 1.3rem;
+    color: #003366;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #76B041;
+}
+
+.faq-answer {
+    font-size: 1.1rem;
+    color: #333;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-style: italic;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Call-to-Action Styling */
 .call-to-action {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #003366;
     background-color: #EAF4E1;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action:hover {
+    background-color: #d1e7d3;
+    cursor: pointer;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .learn-container {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .learn-heading {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .learn-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+
+    .learn-section p,
+    .learn-section ul,
+    .learn-section ol {
+        font-size: 1rem;
+    }
+
+    .call-to-action {
+        font-size: 1.1rem;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .learn-container {
         padding: 15px;
     }
 
     .learn-heading {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         margin-bottom: 15px;
     }
 
     .learn-section h2 {
         font-size: 1.5rem;
-        margin-bottom: 8px;
     }
 
     .learn-section p,
@@ -81,32 +172,6 @@
 
     .call-to-action {
         font-size: 1rem;
-        padding: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .learn-container {
-        padding: 10px;
-    }
-
-    .learn-heading {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-
-    .learn-section h2 {
-        font-size: 1.3rem;
-    }
-
-    .learn-section p,
-    .learn-section ul,
-    .learn-section ol {
-        font-size: 0.9rem;
-    }
-
-    .call-to-action {
-        font-size: 0.95rem;
-        padding: 10px;
+        padding: 15px;
     }
 }

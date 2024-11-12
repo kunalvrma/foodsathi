@@ -1,0 +1,25 @@
+{
+  "name": "foodsathi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swati11Kushwaha/foodsathi.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "swati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Swati11Kushwaha/foodsathi/issues"
+  },
+  "homepage": "https://github.com/Swati11Kushwaha/foodsathi#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

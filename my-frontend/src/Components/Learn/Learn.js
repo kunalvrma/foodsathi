@@ -1,8 +1,17 @@
-// src/components/Learn.js
-import React from 'react';
+import React, { useState } from 'react';
 import './Learn.css';
 
 const Learn = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null); // Close the answer if it's already open
+    } else {
+      setActiveIndex(index); // Open the selected answer
+    }
+  };
+
   return (
     <div className="learn-container">
       <h1 className="learn-heading">Learn More About FoodSathi</h1>
@@ -73,9 +82,42 @@ const Learn = () => {
       {/* FAQs Section */}
       <section className="learn-section">
         <h2>FAQs</h2>
-        <p><strong>Who can donate?</strong> Any business, organization, or individual with surplus food can become a donor.</p>
-        <p><strong>Is volunteering safe?</strong> Yes! Volunteers receive guidance on safe handling and distribution practices.</p>
-        <p><strong>How do I register?</strong> Simply click the "Register" button at the top of the page to get started as a donor, volunteer, or NGO.</p>
+        <div className="faq-item">
+          <p className="faq-question" onClick={() => toggleAnswer(0)}>
+            <strong>Who can donate?</strong>
+          </p>
+          {activeIndex === 0 && (
+            <p className="faq-answer">
+              Any business, organization, or individual with surplus food can become a donor.
+            </p>
+          )}
+        </div>
+
+        <hr />
+
+        <div className="faq-item">
+          <p className="faq-question" onClick={() => toggleAnswer(1)}>
+            <strong>Is volunteering safe?</strong>
+          </p>
+          {activeIndex === 1 && (
+            <p className="faq-answer">
+              Yes! Volunteers receive guidance on safe handling and distribution practices.
+            </p>
+          )}
+        </div>
+
+        <hr />
+
+        <div className="faq-item">
+          <p className="faq-question" onClick={() => toggleAnswer(2)}>
+            <strong>How do I register?</strong>
+          </p>
+          {activeIndex === 2 && (
+            <p className="faq-answer">
+              Simply click the "Register" button at the top of the page to get started as a donor, volunteer, or NGO.
+            </p>
+          )}
+        </div>
       </section>
 
       {/* Call to Action */}
