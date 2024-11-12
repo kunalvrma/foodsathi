@@ -45,7 +45,7 @@ const App = () => {
           <FoodSathies/>
           <JourneyCount /> 
           <ChatBot/> 
-          <Footer/>  </>} />
+          <Footer/><NgoDashboard/><RestaurantDashboard/>  </>} />
          
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
