@@ -151,6 +151,6 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 Contact
 For inquiries or collaboration:
 
-Email: [Your Email]
-Website: [Your Website]
-GitHub: [Your GitHub Profile]
+Email: kunalverma3369@gmail.com,, aryandixit7629@gmail.com
+Website: 139.84.177.2
+GitHub: [[Your GitHub Profile]](https://aryandixit04.github.io/myPortfolio-main/) ,,, https://github.com/kunalvrma/foodsathi
