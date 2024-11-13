@@ -1,6 +1,6 @@
 //src/Components/Register.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Register.css';
 
 const Register = () => {
@@ -58,7 +58,7 @@ const Register = () => {
 
     try {
       // Send registration data to backend API
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch('http://139.84.177.2:5000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

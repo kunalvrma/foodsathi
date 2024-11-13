@@ -1,7 +1,7 @@
 //src/Components/Login.js
-import React, { useState} from 'react';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -19,7 +19,7 @@ const LoginPage = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('http://139.84.177.2:5000/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
