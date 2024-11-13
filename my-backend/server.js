@@ -16,7 +16,7 @@ const app = express();
 
 app.use(express.json()); // To parse JSON bodies
 app.use(cors({
-    origin: 'http://localhost:3000',  // your React frontend's URL
+    origin: 'http://139.84.177.2:3000',  // your React frontend's URL
     methods: ['GET', 'POST'],
     credentials: true,
   }));
@@ -41,6 +41,6 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
 });
