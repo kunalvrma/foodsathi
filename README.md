@@ -143,4 +143,4 @@ For inquiries or collaboration:
 
 Email: kunalverma3369@gmail.com,, aryandixit7629@gmail.com
 Website: 139.84.177.2
-GitHub: [[Your GitHub Profile]](https://aryandixit04.github.io/myPortfolio-main/) ,,, https://github.com/kunalvrma/foodsathi
+GitHub: (https://github.com/AryanDixit04)(https://aryandixit04.github.io/myPortfolio-main/) ,,, https://github.com/kunalvrma/foodsathi
