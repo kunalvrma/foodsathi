@@ -1,0 +1,126 @@
+/* Wrapper to position the chatbot fixed at the bottom right */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for appearing */
+}
+
+/* Hover effect for the chatbot icon */
+.chat-icon {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Scale up the icon slightly on hover */
+.chat-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for the chatbot window */
+.chatbot {
+  width: 300px;
+  max-height: 500px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  opacity: 0; /* Start with the chatbot window invisible */
+  animation: slideIn 0.5s forwards; /* Apply slide-in animation */
+}
+
+/* Keyframes for slide-in effect */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close button in the top right corner */
+.close-chatbot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+  border-radius: 50%;
+}
+
+/* Change close button color on hover */
+.close-chatbot:hover {
+  color: white ;
+}
+
+/* Messages section */
+.messages {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  
+}
+
+/* Style for individual message */
+.messages p {
+  margin: 5px 0;
+}
+
+.messages p strong {
+  color: #007bff;
+}
+
+/* Input and send button */
+.chat-input {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input input {
+  width: 70%;
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.2s ease;
+}
+
+/* Change border color on focus */
+.chat-input input:focus {
+  border-color: #007bff;
+}
+
+/* Send button style */
+.chat-input button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Change button background on hover */
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Disable send button with a light color */
+.chat-input button:disabled {
+  background-color: #ccc;
+}
