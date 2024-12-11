@@ -1,4 +1,4 @@
-#FoodSathi Web App
+# FoodSathi Web App
 
 FoodSathi is a web application aimed at reducing food waste and promoting food donation. This application connects donors, volunteers, and organizations to work collaboratively toward a food-secure community.
 
@@ -52,8 +52,8 @@ React (for frontend development)
 
 *Steps:*
 
-Navigate to the my-frontend directory:'''
-cd my-frontend'''
+Navigate to the my-frontend directory: ''' 
+cd my-frontend '''
 
 Install dependencies:'''
 npm install'''
