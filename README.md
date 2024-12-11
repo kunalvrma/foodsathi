@@ -52,27 +52,28 @@ React (for frontend development)
 
 *Steps:*
 
-Navigate to the my-frontend directory: ''' 
-cd my-frontend '''
+Navigate to the my-frontend directory: ```
+cd my-frontend ```
 
-Install dependencies:'''
-npm install'''
+Install dependencies:```
+npm install```
 
-Install necessary packages:'''
+Install necessary packages:```
 npm i react-router-dom
 npm i react-scripts
 npm i framer-motion
-npm i axios'''
+npm i axios ```
 
-Build the project:'''
-npm run build'''
+Build the project:```
+npm run build```
 
-Start the React app:'''
-npm start'''
+Start the React app:```
+npm start```
 
-Set the API base URL:'''
+Set the API base URL:
+```
 env
-REACT_APP_API_URL=http://localhost:5000'''
+REACT_APP_API_URL=http://localhost:5000```
 
 
 **Backend Setup**
