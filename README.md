@@ -1,4 +1,4 @@
-**FoodSathi Web App**
+#FoodSathi Web App
 
 FoodSathi is a web application aimed at reducing food waste and promoting food donation. This application connects donors, volunteers, and organizations to work collaboratively toward a food-secure community.
 
@@ -52,52 +52,52 @@ React (for frontend development)
 
 *Steps:*
 
-Navigate to the my-frontend directory:
-cd my-frontend
+Navigate to the my-frontend directory:'''
+cd my-frontend'''
 
-Install dependencies:
-npm install
+Install dependencies:'''
+npm install'''
 
-Install necessary packages:
+Install necessary packages:'''
 npm i react-router-dom
 npm i react-scripts
 npm i framer-motion
-npm i axios
+npm i axios'''
 
-Build the project:
-npm run build
+Build the project:'''
+npm run build'''
 
-Start the React app:
-npm start
+Start the React app:'''
+npm start'''
 
-Set the API base URL:
+Set the API base URL:'''
 env
-REACT_APP_API_URL=http://localhost:5000
+REACT_APP_API_URL=http://localhost:5000'''
 
 
 **Backend Setup**
 
 *Steps:*
 
-Navigate to the my-backend directory:
-cd my-backend
+Navigate to the my-backend directory:'''
+cd my-backend'''
 
-Install dependencies:
-npm install
+Install dependencies:'''
+npm install'''
 
-Set up necessary packages:
+Set up necessary packages:'''
 npm i mongoose
 npm i express
 npm i dotenv
 npm i bcryptjs
-npm i jsonwebtoken
+npm i jsonwebtoken'''
 
-Configure .env file with your MongoDB connection string:
+Configure .env file with your MongoDB connection string:'''
 MONGO_URI=mongodb://localhost:27017/yourDatabase
-JWT_SECRET=yourSecretKey
+JWT_SECRET=yourSecretKey'''
 
-Start the backend server:
-node server.js
+Start the backend server:'''
+node server.js'''
 
 
 **Technologies Used**
