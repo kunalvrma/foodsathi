@@ -54,26 +54,31 @@ React (for frontend development)
 
 Navigate to the my-frontend directory: 
 ```
-cd my-frontend ```
+cd my-frontend
+```
 
 Install dependencies:
 ```
-npm install```
+npm install
+```
 
 Install necessary packages:
 ```
 npm i react-router-dom
 npm i react-scripts
 npm i framer-motion
-npm i axios ```
+npm i axios
+```
 
 Build the project:
 ```
-npm run build```
+npm run build
+```
 
 Start the React app:
 ```
-npm start```
+npm start
+```
 
 Set the API base URL:
 ```
