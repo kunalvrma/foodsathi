@@ -3,7 +3,7 @@
 FoodSathi is a web application aimed at reducing food waste and promoting food donation. This application connects donors, volunteers, and organizations to work collaboratively toward a food-secure community.
 
 
-**Features**
+## Features
 
 -> User-friendly Interface: Navigate through easy-to-use features.
 -> Food Donation: Register as a donor to contribute food surplus.
@@ -11,7 +11,7 @@ FoodSathi is a web application aimed at reducing food waste and promoting food d
 -> Community Connection: Collaborate with NGOs and local partners to reduce food waste.
 
 
-**Prerequisites**
+## Prerequisites
 
 Ensure you have the following installed:
 
@@ -20,8 +20,9 @@ npm (Node Package Manager)
 React (for frontend development)
 
 
-**Directory Structure**
+## Directory Structure
 
+```
 .
 ├── my-frontend/
 
@@ -46,9 +47,10 @@ React (for frontend development)
 │   ├── package.json
 
 │   ├── README.md
+```
 
 
-**Frontend Setup**
+## Frontend Setup
 
 *Steps:*
 
@@ -87,7 +89,7 @@ REACT_APP_API_URL=http://localhost:5000
 ```
 
 
-**Backend Setup**
+## Backend Setup
 
 *Steps:*
 
@@ -122,7 +124,7 @@ node server.js
 ```
 
 
-**Technologies Used**
+## Technologies Used
 
 *Frontend:*
 
@@ -160,7 +162,7 @@ arduino
 REACT_APP_API_URL=http://localhost:5000
 
 
-**Deployment**
+## Deployment
 
 *Frontend:*
 
@@ -175,7 +177,7 @@ Use a service like Heroku, Render, or AWS to deploy your backend.
 Update the MONGO_URI and other environment variables accordingly.
 
 
-**Contribution**
+## Contribution
 
 Contributions are welcome! Follow these steps:
 
@@ -185,12 +187,12 @@ Commit your changes: git commit -m 'Add some feature'.
 Push to the branch: git push origin feature-name.
 Open a pull request.
 
-License
+### License
 
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
 
-Contact
+### Contact
 For inquiries or collaboration:
 
 Email: kunalverma3369@gmail.com,, aryandixit7629@gmail.com
