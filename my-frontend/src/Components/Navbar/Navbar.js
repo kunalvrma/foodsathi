@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Notification from '../Notification/Notification'; // Adjust the path correctly
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAccountCircle, MdHandshake } from "react-icons/md";
 import { TbGridDots } from "react-icons/tb";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext'; // Import the useAuth hook
+import Notification from '../Notification/Notification'; // Adjust the path correctly
 import "./navbar.css";
 
 const Navbar = () => {
@@ -40,7 +40,7 @@ const Navbar = () => {
           <a href="/" className="logo flex">
             <h1>
               <MdHandshake className="icons" />
-              FoodSathi.
+              FoodSathi
             </h1>
           </a>
         </div>

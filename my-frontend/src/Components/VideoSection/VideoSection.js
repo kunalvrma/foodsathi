@@ -1,9 +1,10 @@
 import React from 'react';
 import './videoSection.css'; // Ensure the CSS file is properly linked
 
-const VideoSection = () => {
-    const videoSrc = 'https://sjc1.vultrobjects.com/kunalverma336915/vedio%20section/home_vedio.mp4'; // External video URL
+// Correctly importing the video file
+import videoSrc from './media/3505936067-preview.mp4';
 
+const VideoSection = () => {
     return (
         <div className="video-container">
             {/* Video element */}
