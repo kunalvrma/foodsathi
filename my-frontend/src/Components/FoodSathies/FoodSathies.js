@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './FoodSathies.css';
 
+// Import images
+import ngoImage0 from './media/ngo0.jpg';
+import ngoImage1 from './media/ngo1.jpg';
+
 const FoodSathies = () => {
     const foodSathiData = [
         {
@@ -9,14 +13,15 @@ const FoodSathies = () => {
             title: 'NGOs',
             description: 'Helping to distribute surplus food to those in need.',
             link: '/ngo',
-            image:'https://sjc1.vultrobjects.com/kunalverma336915/foodsathi/ngo1.jpg'
+            image: ngoImage0,
         },
         {
             id: 2,
             title: 'Hotels',
             description: 'Partnering to prevent food waste from events.',
             link: '/Details/hotels',
-            image:'https://sjc1.vultrobjects.com/kunalverma336915/foodsathi/ngo0.jpg'        }
+            image: ngoImage1,
+        },
     ];
 
     const navigate = useNavigate();
