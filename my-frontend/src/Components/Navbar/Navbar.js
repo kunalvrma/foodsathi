@@ -10,7 +10,7 @@ import "./navbar.css";
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const { user, logout } = useAuth();  // Get user and logout function from context
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const toggleNav = () => setIsActive(!isActive);
 
@@ -49,7 +49,7 @@ const Navbar = () => {
           <ul className="navLists flex">
             {navItems.map(item => (
               <li key={item.name} className="navItem">
-                <a href={item.link} className="navLink">{item.name}</a>
+                <Link to={item.link} className="navLink">{item.name}</Link>
               </li>
             ))}
 

@@ -28,12 +28,14 @@ import Register from './Components/Register';
 import About from './Components/support/About';
 import ContactUs from './Components/support/ContactUs';
 import VideoSection from './Components/VideoSection/VideoSection';
-import { UserProvider } from './UserContext';
+//import { UserProvider } from './UserContext';
+import { AuthProvider } from './context/AuthContext'; // ✅ Update this path to your actual file
+
 
 
 const App = () => {
   return (
-    <UserProvider>
+    <AuthProvider>
     <Router>
       <Navbar />
       <Routes>
@@ -43,14 +45,15 @@ const App = () => {
           <VideoSection />
           <ImageCardSection />
           <FoodSathies/>
-          <JourneyCount /> 
+          <JourneyCount />
+          
           <ChatBot/> 
           <Footer/>  </>} />
          
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Learn /> } />
-        <Route path="/About" element={<About />} />
+        <Route path="#" element={<About />} />
         <Route path="/restaurant-dashboard" element={
           <ProtectedRoute allowedRole="restaurant">
             <RestaurantDashboard />
@@ -83,7 +86,7 @@ const App = () => {
       </Routes>
      
     </Router>
-    </UserProvider>
+    </AuthProvider>
   );
 };
 

@@ -64,9 +64,9 @@ const About = () => {
         </div>
       </div>
 
-      <div>
+     <div>
        <Gallery />
-      </div>
+      </div> 
     </div>
   );
 };
