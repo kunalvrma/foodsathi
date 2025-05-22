@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  background-color: #fffbe6;
+  flex-direction: column;
+  padding: 0 300px;
+}
+
+@media (min-width: 768px) {
+  .login-wrapper {
+    flex-direction: row;
+  }
+}
+
+.login-card {
+  flex: 1;
+  max-width: 420px;
+  margin: auto;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  color: #333;
+}
+
+.subtext {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  background-color: #ff914d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #e77e2e;
+}
+
+.social-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration-color: #333;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.login-image {
+  flex: 1;
+  /*background-image: url('/images/donation.webp');*/
+  background-size: cover;
+  background-position: center;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .login-image {
+    display: block;
+  }
+}
