@@ -41,7 +41,7 @@ const ContactUs = () => {
             <p>We'd love to hear from you! Please fill out the form below.</p>
             <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name"></label>
                     <input
                         type="text"
                         id="name"
@@ -53,7 +53,7 @@ const ContactUs = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email"></label>
                     <input
                         type="email"
                         id="email"
@@ -65,7 +65,7 @@ const ContactUs = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="subject">Subject</label>
+                    <label htmlFor="subject"></label>
                     <input
                         type="text"
                         id="subject"
@@ -77,7 +77,7 @@ const ContactUs = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message"></label>
                     <textarea
                         id="message"
                         name="message"
