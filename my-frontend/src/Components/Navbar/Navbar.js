@@ -101,6 +101,7 @@ const Navbar = () => {
             </div>
           </ul>
         </div>
+        
 {/* Account icon for mobile (outside nav menu) */}
 {user && (
   <div className="account-mobile">
