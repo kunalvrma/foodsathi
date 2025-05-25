@@ -108,7 +108,7 @@ body {
 }
 .myProfile {
     color: var(--navlinkColor);
-    font-size: 35px;
+    font-size: 45px;
     margin-right: 3px;
     display: flex;
     align-items: center;
@@ -150,6 +150,80 @@ body {
     transform: translateY(0);
 }
 */
+/*account css*/
+.dropdownWrapper {
+  position: relative;
+}
+
+.accountIcon {
+  cursor: pointer;
+  color: var(--navlinkColor);
+    font-size: 35px;
+    margin-right: 3px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 120px;
+}
+
+.dropdownMenu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdownMenu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hide mobile account icon on large screens */
+.account-mobile {
+  display: none;
+}
+
+.account-desktop {
+  display: flex;
+}
+
+/* On small screens, show mobile version and hide desktop */
+@media (max-width: 768px) {
+  .account-desktop {
+    display: none;
+  }
+
+  .account-mobile {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: 1rem;
+    align-items: center;
+  }
+
+  .mobileDropdown {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    background: white;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    z-index: 99;
+  }
+}
+
 /* Close button */
  .closeNavbar , .closeNavBar {
     position: absolute;
