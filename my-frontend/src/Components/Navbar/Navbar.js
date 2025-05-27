@@ -11,9 +11,12 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false); // for drop down in account icon
 
   const [isActive, setIsActive] = useState(false);
+
   const {auth, logout } = useAuth();  // Get user and logout function from context
   const user=auth.user;
   const navigate = useNavigate();
+
+ 
 
   const toggleNav = () => setIsActive(!isActive);
 

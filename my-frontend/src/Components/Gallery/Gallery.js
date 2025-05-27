@@ -10,9 +10,9 @@ import img5 from './media/img5.jpg';
 
 const images = [img1, img2, img3, img5];
 
-function Gallery() {
+const Gallery = React.forwardRef((props, ref) => {
   return (
-    <div className="gallery">
+    <div ref={ref} className="gallery">
       {images.map((src, index) => (
         <motion.div
           key={index}
@@ -27,6 +27,6 @@ function Gallery() {
       ))}
     </div>
   );
-}
+});
 
 export default Gallery;
