@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 import './PostDonation.css';
 
 const PostDonation = () => {
