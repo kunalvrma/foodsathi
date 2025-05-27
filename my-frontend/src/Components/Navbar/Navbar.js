@@ -8,9 +8,15 @@ import Notification from '../Notification/Notification'; // Adjust the path corr
 import "./navbar.css";
 
 const Navbar = () => {
+  const [showDropdown, setShowDropdown] = useState(false); // for drop down in account icon
+
   const [isActive, setIsActive] = useState(false);
-  const { user, logout } = useAuth();  // Get user and logout function from context
+
+  const {auth, logout } = useAuth();  // Get user and logout function from context
+  const user=auth.user;
   const navigate = useNavigate();
+
+ 
 
   const toggleNav = () => setIsActive(!isActive);
 
@@ -37,21 +43,26 @@ const Navbar = () => {
     <nav className="NavBarSection">
       <header className="header flex">
         <div className="logoDiv">
-          <a href="/" className="logo flex">
+          <Link to="/" className="logo flex">
             <h1>
               <MdHandshake className="icons" />
               FoodSathi
             </h1>
-          </a>
+          </Link>
         </div>
 
         <div className={`navBar ${isActive ? "activeNavbar" : ""}`}>
           <ul className="navLists flex">
             {navItems.map(item => (
               <li key={item.name} className="navItem">
-                <a href={item.link} className="navLink">{item.name}</a>
+                <Link to={item.link} className="navLink">{item.name}</Link>
               </li>
             ))}
+
+            {/* notification */}
+            <li className="navItem">
+            <Notification />
+            </li>
 
             {/* Show Login button if user is not logged in */}
             {!user ? (
@@ -61,30 +72,62 @@ const Navbar = () => {
             ) : (
               <>
                 {/* Show Dashboard if the user is logged in */}
-                <li className="navItem">
-                  <Link to="/dashboard" className="myProfile">
-                    <MdAccountCircle />
-                  </Link>
-                </li>
+               <li className="navItem dropdownWrapper">
+                   <div className="accountIcon" onClick={() => setShowDropdown(!showDropdown)}>
+                     <MdAccountCircle size={24} />
+                   </div>
                 {/* Show Logout button if the user is logged in */}
-                <li className="navItem">
-                  <button className="btn" onClick={handleLogoutClick}>Logout</button>
-                </li>
+                  {showDropdown && (
+                       <ul className="dropdownMenu">
+                          <li onClick={() => { setShowDropdown(false);  if (user?.role === 'ngo') {
+      navigate('/ngo-dashboard/*');
+    } else if (user?.role === 'restaurant') {
+      navigate('/restaurant-dashboard');
+    } else {
+      navigate('/'); // fallback or general dashboard
+    } }}>Profile</li>
+                         <li onClick={() => { setShowDropdown(false); handleLogoutClick(); }}>Logout</li>
+                       </ul>
+  )}
+</li>
               </>
             )}
+
 
             <li className="navItem">
               <Link to="/donationForm" className="btn" aria-label="Donate Button">Donate</Link>
             </li>
-            <li className="navItem">
-            <Notification />
-            </li>
+
 
             <div onClick={toggleNav} className="closeNavBar" aria-label="Close Navigation">
               <IoIosCloseCircle className="icons" />
             </div>
           </ul>
         </div>
+        
+{/* Account icon for mobile (outside nav menu) */}
+{user && (
+  <div className="account-mobile">
+    <div className="accountIcon" onClick={() => setShowDropdown(!showDropdown)}>
+      <MdAccountCircle size={24} />
+    </div>
+    {showDropdown && (
+      <ul className="dropdownMenu mobileDropdown">
+        <li onClick={() => {
+          setShowDropdown(false);
+          if (user?.role === 'ngo') {
+            navigate('/ngo-dashboard');
+          } else if (user?.role === 'restaurant') {
+            navigate('/restaurant-dashboard');
+          } else {
+            navigate('/');
+          }
+        }}>Profile</li>
+        <li onClick={() => { setShowDropdown(false); handleLogoutClick(); }}>Logout</li>
+      </ul>
+    )}
+  </div>
+)}
 
         <div onClick={toggleNav} className="toggleNavbar" aria-label="Toggle Navigation">
           <TbGridDots />
