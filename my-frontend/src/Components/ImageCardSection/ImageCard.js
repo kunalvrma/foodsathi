@@ -20,7 +20,7 @@ const ImageCardSection = () => {
             <p>
               Using our web-based app, we engage volunteers to transfer fresh food surpluses from local businesses to social service agencies serving the food insecure.
             </p>
-            <a href="/form-link" className="navigate-btn">Be a Food Donor</a>
+            <a href="/donationForm" className="navigate-btn">Be a Food Donor</a>
           </div>
         </div>
         <div className="card">
@@ -32,7 +32,7 @@ const ImageCardSection = () => {
             <p>
               Food waste remains one of the top solutions to global warming. Currently, food waste contributes 8 percent of total global greenhouse gas emissions.
             </p>
-            <a href="/form-link" className="navigate-btn">Be a Volunteer</a>
+            <a href="/donationForm" className="navigate-btn">Be a Volunteer</a>
           </div>
         </div>
         <div className="card">
@@ -44,7 +44,7 @@ const ImageCardSection = () => {
             <p>
               Our model empowers communities to serve themselves with the support of our app. All food donors, rescuers, and agency partners are members of the communities where we operate.
             </p>
-            <a href="/form-link" className="navigate-btn">Navigate to Form</a>
+            <a href="/donationForm" className="navigate-btn">Navigate to Form</a>
           </div>
         </div>
       </div>

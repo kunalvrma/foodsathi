@@ -38,10 +38,11 @@ const Register = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (!name || !email || !password) {
-      setError('Please fill in all fields');
-      return;
-    }
+    if (!name || !email || !password || !role || !phoneNumber) {
+  setError('Please fill in all fields');
+  setIsLoading(false);
+  return;
+}
 
     if (!validateEmail(email)) {
       setError('Please enter a valid email address');
@@ -155,6 +156,7 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    backgroundColor:'#fff',
   },
   form: {
     margin: '10px auto',
