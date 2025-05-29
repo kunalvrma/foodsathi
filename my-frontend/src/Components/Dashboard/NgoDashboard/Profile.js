@@ -5,7 +5,13 @@ import { CiPhone } from "react-icons/ci";
 import { IoMdLink } from "react-icons/io";
 
 const Profile = () => {
-  const { user } = useUser(); // Get user data from context
+  const context = useUser();   // to get data from context 
+
+if (!context || !context.user) {
+  return <div>Loading user...</div>; // Or redirect to login if unauthenticated
+}
+
+const { user } = context;
 
   return (
     <div className="profile">

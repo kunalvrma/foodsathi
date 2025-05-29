@@ -15,11 +15,20 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // To parse JSON bodies
-app.use(cors({
-    origin: 'http://localhost:3000',  // your React frontend's URL
-    methods: ['GET', 'POST'],
-    credentials: true,
-  }));
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || /^http:\/\/localhost:30\d{2}$/.test(origin)) {
+      callback(null, true); // ✅ Allow localhost:3000–3099
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST'],
+};
+
+app.use(cors(corsOptions));
+
 
 // Serve static files from the React app (Step 2)
 app.use(express.static(path.join(__dirname, 'build')));

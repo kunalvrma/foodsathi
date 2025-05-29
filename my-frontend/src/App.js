@@ -28,7 +28,7 @@ import Register from './Components/Register';
 import About from './Components/support/About';
 import ContactUs from './Components/support/ContactUs';
 import VideoSection from './Components/VideoSection/VideoSection';
-//import { UserProvider } from './UserContext';
+import { UserProvider } from './UserContext';
 import { AuthProvider } from './context/AuthContext'; // ✅ Update this path to your actual file
 
 
@@ -36,6 +36,7 @@ import { AuthProvider } from './context/AuthContext'; // ✅ Update this path to
 const App = () => {
   return (
     <AuthProvider>
+      <UserProvider>
     <Router>
       <Navbar />
       <Routes>
@@ -86,6 +87,7 @@ const App = () => {
       </Routes>
      
     </Router>
+    </UserProvider>
     </AuthProvider>
   );
 };
