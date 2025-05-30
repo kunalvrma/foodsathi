@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import './PostDonation.css';
 
 const PostDonation = () => {
   const [donations, setDonations] = useState([]);
-const navigate = useNavigate();
+
 
   const handlePostDonation = (e) => {
     e.preventDefault();

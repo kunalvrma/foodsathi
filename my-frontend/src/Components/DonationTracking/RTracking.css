@@ -1,169 +1,175 @@
-/* Root color variables */
 :root {
-    --PrimaryColor: #003366;
-    --leafColor: #76B041;
-    --navlinkColor: #F2E9D8;
-    --accentColor: #EAF4E1;
-    --textColor: #212121;
-  }
-  
-  /* Container to center the tracking section */
-  .receiver-tracking-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--navlinkColor); /* Background color for the entire page */
+  --PrimaryColor: #003366;
+  --leafColor: #76B041;
+  --navlinkColor: #F2E9D8;
+  --accentColor: #EAF4E1;
+  --textColor: #212121;
+}
+
+/* Main container */
+.donor-tracking-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: var(--navlinkColor);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Content box */
+.tracking-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 960px;
+}
+
+/* Section box */
+.section-box {
+  background-color: var(--accentColor);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  border-left: 3px solid var(--leafColor);
+  padding-left: 24px;
+  margin-top: 20px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  width: 14px;
+  height: 14px;
+  background-color: #ccc;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-step.active::before {
+  background-color: var(--leafColor);
+}
+
+.timeline-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--PrimaryColor);
+}
+
+.timeline-label {
+  font-size: 16px;
+  color: var(--textColor);
+}
+
+/* Sathi symbol */
+.sathi-symbol {
+  position: absolute;
+  left: -28px;
+  font-size: 24px;
+  color: var(--PrimaryColor);
+  transition: top 0.3s ease;
+}
+
+/* Buttons */
+.advance-button,
+.retry-button,
+.call-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.advance-button:hover,
+.retry-button:hover,
+.call-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* OTP Section */
+.otp-section {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.otp-input {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+/* History Table */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.history-table th {
+  background-color: #f4f4f4;
+}
+
+/* Chart container */
+.analytics-chart {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tracking-content {
     padding: 20px;
   }
-  
-  /* Tracking content with white background */
-  .tracking-content {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 700px;
-  }
-  
-  /* Heading styles */
-  .tracking-content h2 {
-    text-align: center;
-    font-size: 28px;
-    color: var(--PrimaryColor);
-    margin-bottom: 30px;
-  }
-  
-  /* Timeline styles */
-  .timeline {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-left: 2px solid var(--leafColor);
-    padding-left: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Timeline step */
-  .timeline-step {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    padding: 15px;
-    width: 100%;
-    position: relative;
-    text-align: center;
-  }
-  
-  .timeline-step::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--leafColor);
-    border-radius: 50%;
-  }
-  
-  /* Timeline icon styles */
-  .timeline-icon {
-    font-size: 24px;
-    margin-right: 10px;
-    color: var(--PrimaryColor);
-  }
-  
-  /* Timeline label styles */
+
   .timeline-label {
-    font-size: 16px;
-    color: var(--textColor);
+    font-size: 14px;
   }
-  
-  /* Active step styles */
-  .timeline-step.active .timeline-icon {
-    color: var(--PrimaryColor);
+
+  .advance-button,
+  .retry-button,
+  .call-button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
-  
-  /* Sathi symbol for current step */
-  .sathi-symbol {
-    position: absolute;
-    left: -20px;
-    top: 0;
-    font-size: 24px;
-    color: var(--PrimaryColor);
-    transition: top 0.3s ease;
-  }
-  
-  /* Action buttons */
-  .actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .otp-input {
     width: 100%;
-    margin-top: 30px;
   }
-  
-  /* Button Styles */
-  .call-button, .advance-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
-    margin-top: 15px;
-  }
-  
-  .call-button:hover, .advance-button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-  }
-  
-  .call-button:active, .advance-button:active {
-    transform: translateY(1px);
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 600px) {
-    .tracking-content {
-      padding: 20px;
-      max-width: 90%;
-    }
-  
-    .timeline-icon {
-      font-size: 20px;
-    }
-  
-    .timeline-label {
-      font-size: 14px;
-    }
-  
-    .call-button, .advance-button {
-      padding: 10px 18px;
-      font-size: 14px;
-    }
-  }
-  
-  @media (min-width: 600px) and (max-width: 1024px) {
-    .tracking-content {
-      max-width: 80%;
-    }
-  
-    .timeline-icon {
-      font-size: 22px;
-    }
-  
-    .timeline-label {
-      font-size: 15px;
-    }
-  
-    .call-button, .advance-button {
-      padding: 12px 22px;
-      font-size: 16px;
-    }
-  }
-  
+}
