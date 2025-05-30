@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MdReplay, MdCheckCircle, MdLocationOn } from "react-icons/md";
-import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { MdCheckCircle, MdLocationOn, MdReplay } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 import { validOtps } from '../DonationTracking/OtpList';
 import './Tracking.css';
 
@@ -11,6 +11,7 @@ const DonorTracking = () => {
   const [timeLimitExpired, setTimeLimitExpired] = useState(false);
   const [otp, setOtp] = useState("");
   const [showOtpPrompt, setShowOtpPrompt] = useState(false);
+  const [donorLocation, setDonorLocation] = useState(null); // Location state
   const navigate = useNavigate();
 
   const steps = [
@@ -61,6 +62,23 @@ const DonorTracking = () => {
     }
   }, [progress]);
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          setDonorLocation({ lat, lng });
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  }, []);
+
   const analyticsData = {
     labels: ["18-25", "26-35", "36-45", "46+"],
     datasets: [
@@ -99,7 +117,7 @@ const DonorTracking = () => {
           )}
         </div>
 
-        {/* Timeline */}
+        {/* Live Timeline */}
         {progress !== -1 && (
           <div className="section-box">
             <h2>Live Tracking</h2>
@@ -134,11 +152,9 @@ const DonorTracking = () => {
                   </button>
                 </>
               ) : (
-                <>
-                  <button onClick={advanceProgress} className="advance-button">
-                    Complete Donation
-                  </button>
-                </>
+                <button onClick={advanceProgress} className="advance-button">
+                  Complete Donation
+                </button>
               )}
             </div>
 
@@ -157,6 +173,35 @@ const DonorTracking = () => {
                 </button>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Donor Location */}
+        {donorLocation && (
+          <div className="section-box">
+            <h2>Donor Location</h2>
+            <p>
+              <a
+                href={`https://www.google.com/maps?q=${donorLocation.lat},${donorLocation.lng}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                View on Google Maps
+              </a>
+            </p>
+          </div>
+        )}
+        {donorLocation && (
+          <div className="section-box">
+            <iframe
+              width="100%"
+              height="300"
+              frameBorder="0"
+              src={`https://www.google.com/maps?q=${donorLocation.lat},${donorLocation.lng}&z=15&output=embed`}
+              allowFullScreen
+              title="Donor Location Map"
+            ></iframe>
           </div>
         )}
 

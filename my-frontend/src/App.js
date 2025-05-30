@@ -1,8 +1,8 @@
-import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './app.css';
 import ChatBot from './Components/ChatBot/chatBot';
 import AboutNgo from './Components/Dashboard/NgoDashboard/AboutNgo';
+import ContributionsN from './Components/Dashboard/NgoDashboard/ContributionsN';
 import DonationHistory from './Components/Dashboard/NgoDashboard/DonationHistory';
 import NgoDashboard from './Components/Dashboard/NgoDashboard/NgoDashboard';
 import PostRequest from './Components/Dashboard/NgoDashboard/PostRequest';
@@ -20,6 +20,7 @@ import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import ImageCardSection from './Components/ImageCardSection/ImageCard';
 import JourneyCount from './Components/JourneyCount/JourneyCount';
+import Leaderboard from './Components/Leaderboard';
 import Learn from './Components/Learn/Learn';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar/Navbar';
@@ -28,10 +29,8 @@ import Register from './Components/Register';
 import About from './Components/support/About';
 import ContactUs from './Components/support/ContactUs';
 import VideoSection from './Components/VideoSection/VideoSection';
-import { UserProvider } from './UserContext';
 import { AuthProvider } from './context/AuthContext'; // ✅ Update this path to your actual file
-import ContributionsN from './Components/Dashboard/NgoDashboard/ContributionsN';
-import Leaderboard from './Components/Leaderboard';
+import { UserProvider } from './UserContext';
 
 
 const App = () => {
@@ -55,7 +54,7 @@ const App = () => {
         <Route path="/login" element={<Login />} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/learn" element={<Learn /> } />
-        <Route path="#" element={<About />} />
+        <Route path="About" element={<About />} />
         <Route path="/restaurant-dashboard" element={
           <ProtectedRoute allowedRole="restaurant">
             <RestaurantDashboard />
