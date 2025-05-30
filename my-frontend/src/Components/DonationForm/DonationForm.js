@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './DonationForm.css';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
 import MatchNotFound from '../MatchNotFound/MatchNotFound';
+import './DonationForm.css';
 
 function DonationForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -19,6 +19,8 @@ function DonationForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [matchNotFound, setMatchNotFound] = useState(false);
   const [isMatchFound, setIsMatchFound] = useState(false);
+  const [donorName] = useState(formData.name);
+  const receiverName = ""; // Replace with actual receiver name
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -58,45 +60,18 @@ function DonationForm() {
   e.preventDefault();
   setIsLoading(true);
 
-  try {
-    // Simulate delay
-    await new Promise((res) => setTimeout(res, 3000));
-
-    await axios.post('/api/notification', {
-      ...formData,
-      type: 'ngo',
-      location,
-    });
-
-    const matchFound = false; // Replace with real logic
-    if (matchFound) {
-      setIsMatchFound(true);
-    } else {
-      setMatchNotFound(true);
-    }
-
-    console.log("NGO Submission Data:", formData);
-    console.log("NGO Location:", location);
-
-    setFormData({
-      name: '',
-      place: '',
-      phone: '',
-      email: '',
-      amount: '',
-      description: '',
-    });
-  } catch (err) {
-    console.error("Submission error:", err);
-    setError("Failed to submit. Please try again.");
-  } finally {
-    setIsLoading(false);
-  }
-};
-
-
-
-  const handleTrack = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+      if (/* replace with match-check logic */ false) {
+        setIsMatchFound(true);
+      } else {
+        setMatchNotFound(true);
+      }
+      console.log("Form submitted:", formData);
+      console.log("Current Location:", location);
+    }, 3000);
+  };
+  const handleTrack=() => {
     alert("Tracking started!");
   };
 
@@ -108,14 +83,8 @@ function DonationForm() {
   return (
     <div className="donation-section">
       {isLoading && <LoadingDialog />}
-      {isMatchFound && (
-        <MatchFoundDialog
-          donorName={formData.name}
-          receiverName="NGO"
-          onClose={closeModal}
-          onTrack={handleTrack}
-        />
-      )}
+      {isMatchFound && <MatchFoundDialog donorName={donorName} receiverName={receiverName} onClose={closeModal} onTrack={handleTrack} />}
+      
       {matchNotFound && (
         <div className="overlay">
           <MatchNotFound onClose={closeModal} />
@@ -152,7 +121,31 @@ function DonationForm() {
         </label>
 
         {location.lat && location.lng ? (
-          <p>Your current location: Latitude: {location.lat}, Longitude: {location.lng}</p>
+          <>
+            <p>
+              Your current location: Latitude: {location.lat}, Longitude: {location.lng}
+            </p>
+            <div className="map-preview">
+              <p>
+                <a
+                  href={`https://www.google.com/maps?q=${location.lat},${location.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  View on Google Maps
+                </a>
+              </p>
+              <iframe
+                width="100%"
+                height="300"
+                frameBorder="0"
+                src={`https://www.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed`}
+                allowFullScreen
+                title="Donor Location Map"
+              ></iframe>
+            </div>
+          </>
         ) : (
           <p>Fetching location...</p>
         )}
