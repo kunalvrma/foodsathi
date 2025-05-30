@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import './DonationForm.css';
+import { useEffect, useState } from 'react';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
 import MatchNotFound from '../MatchNotFound/MatchNotFound';
 import './DonationForm.css';
+import axios from 'axios';
 
 function DonationForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -20,7 +20,7 @@ function DonationForm() {
   const [matchNotFound, setMatchNotFound] = useState(false);
   const [isMatchFound, setIsMatchFound] = useState(false);
   const [donorName] = useState(formData.name);
-  const receiverName = ""; // Replace with actual receiver name
+  const receiverName = ''; // Replace with actual receiver name
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -60,18 +60,45 @@ function DonationForm() {
   e.preventDefault();
   setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      if (/* replace with match-check logic */ false) {
-        setIsMatchFound(true);
-      } else {
-        setMatchNotFound(true);
-      }
-      console.log("Form submitted:", formData);
-      console.log("Current Location:", location);
-    }, 3000);
-  };
-  const handleTrack=() => {
+  try {
+    // Simulate delay
+    await new Promise((res) => setTimeout(res, 3000));
+
+    await axios.post('/api/notification', {
+      ...formData,
+      type: 'ngo',
+      location,
+    });
+
+    const matchFound = false; // Replace with real logic
+    if (matchFound) {
+      setIsMatchFound(true);
+    } else {
+      setMatchNotFound(true);
+    }
+
+    console.log("NGO Submission Data:", formData);
+    console.log("NGO Location:", location);
+
+    setFormData({
+      name: '',
+      place: '',
+      phone: '',
+      email: '',
+      amount: '',
+      description: '',
+    });
+  } catch (err) {
+    console.error("Submission error:", err);
+    setError("Failed to submit. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+
+
+  const handleTrack = () => {
     alert("Tracking started!");
   };
 
@@ -83,10 +110,17 @@ function DonationForm() {
   return (
     <div className="donation-section">
       {isLoading && <LoadingDialog />}
-      {isMatchFound && <MatchFoundDialog donorName={donorName} receiverName={receiverName} onClose={closeModal} onTrack={handleTrack} />}
-      
+      {isMatchFound && (
+        <MatchFoundDialog
+          donorName={formData.name}
+          receiverName="NGO"
+          onClose={closeModal}
+          onTrack={handleTrack}
+        />
+      )}
       {matchNotFound && (
         <div className="overlay">
+          <MatchNotFound onClose={closeModal} />
           <MatchNotFound onClose={closeModal} />
         </div>
       )}
