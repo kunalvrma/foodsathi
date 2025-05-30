@@ -12,7 +12,7 @@ const Sidebar = () => {
   <li><Link to="/post-request">Post a Request</Link></li>
   <li><Link to="/track-donation-receiver">Track Donation</Link></li>
   <li><Link to="/ContributionsN">Contributions</Link></li>
-  <li><Link to="/"> Leaderboard</Link></li>
+  <li><Link to="/Leaderboard"> Leaderboard</Link></li>
   <li><Link to="/settingsNgo">Settings</Link></li>
 </ul>
 </nav>
