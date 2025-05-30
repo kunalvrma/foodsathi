@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import ContributionsN from './ContributionsN';
+//import ContributionsN from './ContributionsN';
 
 import './dashboard.css';
 //import PostRequest from './PostRequest';
@@ -17,7 +17,7 @@ const NgoDashboard = () => {
       <div className="main-content">
         <Profile />
         <AboutNP />
-        <ContributionsN />
+        
         
       </div>
     </div>

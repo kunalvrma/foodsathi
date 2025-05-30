@@ -23,12 +23,15 @@ const Hotels = () => {
             <div className="hotel-card-container">
                 {hotels.map((hotel) => (
                     <div key={hotel.id} className="hotel-card">
-                        <img src={hotel.image} alt={hotel.name} className="hotel-image" />
+                        <img src={hotel.image} alt={hotel.name} 
+                        className="hotel-image" />
                         <div className="hotel-details">
                             <h3>{hotel.name}</h3>
                             <p>Location: {hotel.location}</p>
                             <p>Donations: {hotel.donations}</p>
-                            <a href={hotel.website} target="_blank" rel="noopener noreferrer" className="website-link">Visit Website</a>
+                            <a href={hotel.website} target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="website-link">Visit Website</a>
                         </div>
                     </div>
                 ))}
