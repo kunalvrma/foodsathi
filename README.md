@@ -70,6 +70,7 @@ npm i react-router-dom
 npm i react-scripts
 npm i framer-motion
 npm i axios
+npm i chart.js react-chartjs
 ```
 
 Build the project:
@@ -187,16 +188,13 @@ Commit your changes: git commit -m 'Add some feature'.
 Push to the branch: git push origin feature-name.
 Open a pull request.
 
-### License
-
-This project is licensed under the MIT License. See the LICENSE file for more information.
 
 
 ### Contact
 For inquiries or collaboration:
 
-Email: kunalverma3369@gmail.com, aryandixit7629@gmail.com
+Email: aryandixit7629@gmail.com,aditi.kush02@gmail.com
 
 Website: 139.84.177.2
 
-GitHub: (https://github.com/AryanDixit04)(https://aryandixit04.github.io/myPortfolio-main/) , https://github.com/kunalvrma/foodsathi
+GitHub: (https://github.com/AryanDixit04)(https://aryandixit04.github.io/myPortfolio-main/) , (https://github.com/AditiKushwaha01/foodsathi/tree/main)
