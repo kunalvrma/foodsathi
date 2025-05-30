@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './DonationForm.css';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
@@ -53,35 +54,47 @@ function DonationForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      
-      const matchFound = false; // Replace with real match-check logic
+  try {
+    // Simulate delay
+    await new Promise((res) => setTimeout(res, 3000));
 
-      if (matchFound) {
-        setIsMatchFound(true);
-      } else {
-        setMatchNotFound(true);
-      }
+    await axios.post('/api/notification', {
+      ...formData,
+      type: 'ngo',
+      location,
+    });
 
-      console.log("NGO Submission Data:", formData);
-      console.log("NGO Location:", location);
+    const matchFound = false; // Replace with real logic
+    if (matchFound) {
+      setIsMatchFound(true);
+    } else {
+      setMatchNotFound(true);
+    }
 
-      // ✅ Reset form after submission
-      setFormData({
-        name: '',
-        place: '',
-        phone: '',
-        email: '',
-        amount: '',
-        description: '',
-      });
-    }, 3000);
-  };
+    console.log("NGO Submission Data:", formData);
+    console.log("NGO Location:", location);
+
+    setFormData({
+      name: '',
+      place: '',
+      phone: '',
+      email: '',
+      amount: '',
+      description: '',
+    });
+  } catch (err) {
+    console.error("Submission error:", err);
+    setError("Failed to submit. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+
 
   const handleTrack = () => {
     alert("Tracking started!");
@@ -110,11 +123,11 @@ function DonationForm() {
       )}
 
       <form className="donation-form" onSubmit={handleSubmit}>
-        <h2>NGO Request for Food</h2>
+        <h2>Donation Form</h2>
         {error && <p className="error">{error}</p>}
 
         <label>
-          NGO Name:
+          Name:
           <input type="text" name="name" value={formData.name} onChange={handleChange} required />
         </label>
         <label>
@@ -130,11 +143,11 @@ function DonationForm() {
           <input type="email" name="email" value={formData.email} onChange={handleChange} required />
         </label>
         <label>
-          Quantity Needed:
+          Quantity donated:
           <input type="number" name="amount" value={formData.amount} onChange={handleChange} required />
         </label>
         <label>
-          Description of Requirement:
+          Description of Donation with expiry:
           <textarea name="description" rows="4" value={formData.description} onChange={handleChange} required />
         </label>
 

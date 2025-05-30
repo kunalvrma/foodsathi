@@ -1,27 +1,42 @@
+// routes/notification.js (MOCKED VERSION)
 const express = require('express');
 const router = express.Router();
-const Donation = require('../models/Donation'); // 🔸 Use the model
 
-// POST /api/notification
-router.post('/', async (req, res) => {
-  try {
-    const { name, type } = req.body;
-    const donation = new Donation({ name, type });
-    await donation.save();
-
-    res.status(201).json({ message: 'Donation saved', data: donation });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to save donation' });
+let mockDonations = [
+  {
+    _id: '1',
+    name: 'Alice',
+    type: 'food',
+    time: new Date()
+  },
+  {
+    _id: '2',
+    name: 'Bob',
+    type: 'food',
+    time: new Date()
   }
-});
+];
 
 // GET /api/notification
-router.get('/', async (req, res) => {
-  try {
-    const donations = await Donation.find().sort({ time: -1 });
-    res.json(donations);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch donations' });
-  }
+router.get('/', (req, res) => {
+  const sorted = [...mockDonations].sort((a, b) => new Date(b.time) - new Date(a.time));
+  res.json(sorted);
 });
+
+// POST /api/notification
+router.post('/', (req, res) => {
+  console.log('🔥 POST /api/notification hit!');
+  console.log('Mock POST body:', req.body);
+
+  const newDonation = {
+    _id: (mockDonations.length + 1).toString(),
+    ...req.body,
+    type: 'food',      // <-- force type to 'food' regardless of client data
+    time: new Date()
+  };
+
+  mockDonations.push(newDonation);
+  res.status(201).json({ message: 'Mock donation saved', data: newDonation });
+});
+
 module.exports = router;
