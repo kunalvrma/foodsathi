@@ -11,7 +11,6 @@ const Sidebar = () => {
         <li><Link to="/Dashboard">Leaderboard</Link></li>
         <li><Link to="/donationForm">Join Us</Link></li>
         <li><Link to ="/track-donation-donor">Track Donation</Link></li>
-        <li><Link to="/Contributions">Contributions</Link></li>
         <li><Link to="/Settings">Settings</Link></li>
       </ul>
     </nav>

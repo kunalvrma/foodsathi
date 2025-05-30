@@ -22,11 +22,16 @@
 
 /* Sidebar styling */
 .sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
   width: 30%;
-  background: linear-gradient(to bottom right, var(--accentColor), #e0e0e0); /* Gradient effect */
-  padding: 0; /* Remove any extra padding to ensure full-width effect */
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Adds shadow to the right */
-  box-sizing: border-box; /* Ensures consistent sizing */
+  height: 100vh;
+  background: linear-gradient(to bottom right, var(--accentColor), #e0e0e0);
+  padding: 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow-y: auto; /* Optional: if sidebar itself has scrollable content */
 }
 
 .sidebar h2 {
@@ -67,10 +72,48 @@
   color: var(--accentColor); /* Change text color on hover */
   background-color: var(--PrimaryColor); /* Background color on hover */
 }
+/* 🌐 Mobile Responsive: Collapse or Top Layout */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 60%;
+    height: auto;
+    top: 0;
+    box-shadow: none;
+    overflow: visible;
+  }
 
+  .main-content {
+    margin-left: 0 !important; /* Reset left margin */
+    width: 100% !important;
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--PrimaryColor);
+    font-size: 0.8em;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+
+  .sidebar ul li {
+    margin: 10px;
+  }
+
+  .sidebar ul li a {
+    padding: 8px 12px;
+    font-size: 0.8em;
+  }
+}
 
 /* Main content styling */
 .main-content {
+  margin-left: 31%;
   width: 70%;
   padding: 20px; /* Space inside the main content area */
   display: flex; /* Use flexbox for layout */
@@ -78,7 +121,7 @@
   background: linear-gradient(to bottom right, var(--accentColor), #e0e0e0); /* Gradient effect */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-left: 20px; /* Space between sidebar and main content */
+  box-sizing: border-box;
 }
 
 /* Heading styling */
@@ -161,7 +204,7 @@
 /* Contributions section adjustments */
 .contribution-list {
   max-width: 100%; /* Ensures it does not exceed the container width */
-  max-height: 250px;
+  max-height: 1000px;
   margin-bottom: 20px;
   padding: 20px;
   background-color: #e9f1e3; /* Subtle background color matching accent */
