@@ -13,7 +13,14 @@
     flex-direction: column; /* Stack items vertically */
     margin-top: 70px;
   }
-  
+  .map-preview-section {
+  margin-top: 1rem;
+}
+.map-preview-section iframe {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
   .donation-request-form h2 {
     margin-bottom: 20px; /* Space below the heading */
     color: #0c0c0c; /* Dark text color */

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import './DonationRequestForm.css';
+import { useEffect, useState } from 'react';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
 import MatchNotFound from '../MatchNotFound/MatchNotFound';
+import './DonationRequestForm.css';
 
 function DonationRequestForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -18,8 +18,8 @@ function DonationRequestForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [matchNotFound, setMatchNotFound] = useState(false);
   const [isMatchFound, setIsMatchFound] = useState(false);
-  const [donorName] = useState(formData.name); // Assume donor name is from formData
-  const receiverName = ""; // Replace with actual receiver name
+  const [donorName] = useState(formData.name); // You might want to pass actual donor name
+  const receiverName = ''; // Replace with actual receiver name if needed
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -52,10 +52,10 @@ function DonationRequestForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate an API call or match-checking logic
+    // Simulate API or backend check
     setTimeout(() => {
       setIsLoading(false);
-      const isMatch = checkForMatch(); // Dummy function to simulate match check
+      const isMatch = checkForMatch();
 
       if (isMatch) {
         setIsMatchFound(true);
@@ -64,15 +64,17 @@ function DonationRequestForm() {
       }
     }, 3000);
   };
+
   const checkForMatch = () => {
-    // Replace this logic with actual criteria for matching
-    const mockMatchCondition = false; // Set based on actual match criteria
+    // Replace this with actual match logic
+    const mockMatchCondition = false;
     return mockMatchCondition;
   };
-  const handleTrack=() => {
-    alert("Tracking started!");
+
+  const handleTrack = () => {
+    alert('Tracking started!');
   };
-  
+
   const closeMatchNotFoundDialog = () => {
     setMatchNotFound(false);
   };
@@ -124,7 +126,29 @@ function DonationRequestForm() {
         </label>
 
         {location.lat && location.lng ? (
-          <p>Your current location: Latitude: {location.lat}, Longitude: {location.lng}</p>
+          <>
+            <p>Your current location: Latitude: {location.lat}, Longitude: {location.lng}</p>
+            <div className="map-preview-section">
+              <p>
+                <a
+                  href={`https://www.google.com/maps?q=${location.lat},${location.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  View on Google Maps
+                </a>
+              </p>
+              <iframe
+                width="100%"
+                height="300"
+                frameBorder="0"
+                src={`https://www.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed`}
+                allowFullScreen
+                title="Requester Location Map"
+              ></iframe>
+            </div>
+          </>
         ) : (
           <p>Fetching location...</p>
         )}
