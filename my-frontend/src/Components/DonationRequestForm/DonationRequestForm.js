@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
-import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
+import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialogR';
 import MatchNotFound from '../MatchNotFound/MatchNotFound';
 import './DonationRequestForm.css';
 
 function DonationRequestForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMatchFound, setIsMatchFound] = useState(false);
+  const [matchNotFound, setMatchNotFound] = useState(false);
+  const [matchData, setMatchData] = useState(null);
+
   const [formData, setFormData] = useState({
     name: '',
     place: '',
@@ -16,22 +21,6 @@ function DonationRequestForm() {
     email: '',
     amount: '',
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [isMatchFound, setIsMatchFound] = useState(false);
-  const [matchNotFound, setMatchNotFound] = useState(false);
-  const [matchData, setMatchData] = useState(null);
-
-  // Utility: Haversine formula to calculate distance
-  const getDistanceInKm = (lat1, lng1, lat2, lng2) => {
-    const R = 6371;
-    const toRad = (val) => (val * Math.PI) / 180;
-    const dLat = toRad(lat2 - lat1);
-    const dLng = toRad(lng2 - lng1);
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  };
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -56,32 +45,26 @@ function DonationRequestForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
     setIsLoading(true);
-    setIsMatchFound(false);
     setMatchNotFound(false);
+    setIsMatchFound(false);
 
     try {
-      const role = localStorage.getItem('userType') || 'requester';
-
-      // Submit donation/request
-      await axios.post('/api/notification', {
+      // Submit request
+      await axios.post('/api/notificationR', {
         ...formData,
-        type: role,
         location,
       });
 
-      // Check for match
-      const { data: donors } = await axios.get('/api/donors');
-      const match = donors.find((donor) => {
-        const dist = getDistanceInKm(
-          location.lat,
-          location.lng,
-          donor.location.lat,
-          donor.location.lng
-        );
-        return dist <= 10;
-      });
+      // Get existing donors
+      const { data: donors } = await axios.get('/api/notificationR');
+
+      // Match by place & amount only
+      const match = donors.find(
+        (donor) =>
+          donor.place.toLowerCase() === formData.place.toLowerCase() &&
+          donor.amount >= Number(formData.amount)
+      );
 
       if (match) {
         setMatchData(match);
@@ -100,15 +83,12 @@ function DonationRequestForm() {
         amount: '',
       });
     } catch (err) {
-      console.error('Submission error:', err);
-      setError('Failed to submit. Please try again.');
+      //setError('Something went wrong. Try again.');
+      console.error(err);
     } finally {
       setIsLoading(false);
+      setIsMatchFound(true);
     }
-  };
-
-  const handleTrack = () => {
-    alert('Tracking started!');
   };
 
   return (
@@ -117,10 +97,10 @@ function DonationRequestForm() {
 
       {isMatchFound && (
         <MatchFoundDialog
-          donorName={formData.name}
-          receiverName={matchData?.name || 'Receiver'}
+          donorName={matchData?.name}
+          receiverName={formData.name}
           onClose={() => setIsMatchFound(false)}
-          onTrack={handleTrack}
+          onTrack={() => alert('Tracking started!')}
         />
       )}
 
@@ -130,32 +110,26 @@ function DonationRequestForm() {
         </div>
       )}
 
-      <form className="donation-request-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h2>Request Food Donation</h2>
         {error && <p className="error">{error}</p>}
 
-        <label>
-          Name:
+        <label>Name:
           <input name="name" value={formData.name} onChange={handleChange} required />
         </label>
-        <label>
-          Place Where Donation is Needed:
+        <label>Place Where Donation is Needed:
           <input name="place" value={formData.place} onChange={handleChange} required />
         </label>
-        <label>
-          Purpose:
+        <label>Purpose:
           <input name="purpose" value={formData.purpose} onChange={handleChange} required />
         </label>
-        <label>
-          Phone Number:
+        <label>Phone Number:
           <input name="phone" type="tel" value={formData.phone} onChange={handleChange} required />
         </label>
-        <label>
-          Email:
+        <label>Email:
           <input name="email" type="email" value={formData.email} onChange={handleChange} required />
         </label>
-        <label>
-          Amount of Food Needed:
+        <label>Amount of Food Needed:
           <input name="amount" type="number" value={formData.amount} onChange={handleChange} required />
         </label>
 

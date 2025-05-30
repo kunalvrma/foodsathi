@@ -43,7 +43,8 @@ app.use('/api/chatbot', require('./routes/chatbot/chatBot'));
 
 // Use MOCK API ONLY for /api/notification
 console.log('🧪 Using MOCK Notification API for /api/notification');
-app.use('/api/notification', require('./routes/notification')); // mock version
+app.use('/api/notificationR', require('./routes/notificationR')); // mock version
+app.use('/api/notificationD', require('./routes/notificationD')); // mock version
 
 // React fallback - serve index.html for any other frontend route
 app.get('*', (req, res) => {
