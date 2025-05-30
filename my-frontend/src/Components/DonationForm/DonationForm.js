@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import './DonationForm.css';
+import { useEffect, useState } from 'react';
 import LoadingDialog from '../LoadingDialog/LoadingDialog';
 import MatchFoundDialog from '../MatchFoundDialog/MatchFoundDialog';
 import MatchNotFound from '../MatchNotFound/MatchNotFound';
+import './DonationForm.css';
 
 function DonationForm() {
   const [location, setLocation] = useState({ lat: null, lng: null });
@@ -19,7 +19,7 @@ function DonationForm() {
   const [matchNotFound, setMatchNotFound] = useState(false);
   const [isMatchFound, setIsMatchFound] = useState(false);
   const [donorName] = useState(formData.name);
-  const receiverName = ""; // Replace with actual receiver name
+  const receiverName = ''; // Replace with actual receiver name
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -61,7 +61,8 @@ function DonationForm() {
 
     setTimeout(() => {
       setIsLoading(false);
-      if (/* replace with match-check logic */ false) {
+      const isMatch = false; // Replace with actual match-checking logic
+      if (isMatch) {
         setIsMatchFound(true);
       } else {
         setMatchNotFound(true);
@@ -70,10 +71,11 @@ function DonationForm() {
       console.log("Current Location:", location);
     }, 3000);
   };
-  const handleTrack=() => {
-    alert("Tracking started!");
+
+  const handleTrack = () => {
+    alert('Tracking started!');
   };
-  
+
   const closeModal = () => {
     setIsMatchFound(false);
     setMatchNotFound(false);
@@ -82,20 +84,25 @@ function DonationForm() {
   return (
     <div className="donation-section">
       {isLoading && <LoadingDialog />}
-      {isMatchFound && <MatchFoundDialog donorName={donorName} receiverName={receiverName} onClose={closeModal} onTrack={handleTrack} />}
-      
+      {isMatchFound && (
+        <MatchFoundDialog
+          donorName={donorName}
+          receiverName={receiverName}
+          onClose={closeModal}
+          onTrack={handleTrack}
+        />
+      )}
+
       {matchNotFound && (
         <div className="overlay">
-          <MatchNotFound onClose={closeModal}
-          
-          />
+          <MatchNotFound onClose={closeModal} />
         </div>
       )}
 
       <form className="donation-form" onSubmit={handleSubmit}>
         <h2>Donate Food</h2>
         {error && <p className="error">{error}</p>}
-        
+
         <label>
           Name:
           <input type="text" name="name" value={formData.name} onChange={handleChange} required />
@@ -122,7 +129,31 @@ function DonationForm() {
         </label>
 
         {location.lat && location.lng ? (
-          <p>Your current location: Latitude: {location.lat}, Longitude: {location.lng}</p>
+          <>
+            <p>
+              Your current location: Latitude: {location.lat}, Longitude: {location.lng}
+            </p>
+            <div className="map-preview">
+              <p>
+                <a
+                  href={`https://www.google.com/maps?q=${location.lat},${location.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  View on Google Maps
+                </a>
+              </p>
+              <iframe
+                width="100%"
+                height="300"
+                frameBorder="0"
+                src={`https://www.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed`}
+                allowFullScreen
+                title="Donor Location Map"
+              ></iframe>
+            </div>
+          </>
         ) : (
           <p>Fetching location...</p>
         )}
