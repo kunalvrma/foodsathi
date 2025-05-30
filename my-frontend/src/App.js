@@ -30,6 +30,7 @@ import ContactUs from './Components/support/ContactUs';
 import VideoSection from './Components/VideoSection/VideoSection';
 import { UserProvider } from './UserContext';
 import { AuthProvider } from './context/AuthContext'; // ✅ Update this path to your actual file
+import ContributionsN from './Components/Dashboard/NgoDashboard/ContributionsN';
 
 
 
@@ -77,7 +78,7 @@ const App = () => {
         <Route path="/donations" element={<DonationHistory/>}/>
         <Route path="/post-request" element={<PostRequest />} />
         <Route path="/settingsNgo" element={<SettingsNgo />} />
-
+        <Route path="/ContributionsN" element={<ContributionsN />} />
 
         
        {//<Route path="/about" element={<About/>} />

@@ -1,10 +1,11 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import MainContent from './MainContent';
+import ContributionsN from './ContributionsN';
+
 import './dashboard.css';
 //import PostRequest from './PostRequest';
 import Profile from './Profile';
-import AboutNgo from './AboutNgo';
+import AboutNP from './AboutNP';
 //import { fetchProtectedData } from '../../../api';
 
 const NgoDashboard = () => {
@@ -15,8 +16,8 @@ const NgoDashboard = () => {
       </div>
       <div className="main-content">
         <Profile />
-        
-        <AboutNgo/>
+        <AboutNP />
+        <ContributionsN />
         
       </div>
     </div>

@@ -18,6 +18,7 @@
   align-items: center;
   background: linear-gradient(to bottom right, var(--navlinkColor), var(--accentColor));
   min-height: 100vh;
+  margin-top: 60px;
   padding: 40px;
   font-family: var(--fontMain);
 }
@@ -135,10 +136,28 @@
 }
 
 /* Donation History Table */
+/* Wrapper to allow horizontal scrolling */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Ensure table doesn't break layout */
 .history-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
+  min-width: 600px; /* Prevents columns from getting squished */
+}
+
+/* Optional: Style scrollbar (optional for better UX) */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--PrimaryColor);
+  border-radius: 4px;
 }
 
 .history-table thead {
@@ -199,4 +218,5 @@
   .retry-button {
     width: 100%;
   }
+  
 }
